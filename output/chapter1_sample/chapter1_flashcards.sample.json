@@ -1,0 +1,182 @@
+[
+  {
+    "id": "c1-01",
+    "chapter": "1",
+    "topic": "Model Basics",
+    "type": "definition",
+    "front": "What is a model in economics?",
+    "back": "A model is a simplified representation of reality.",
+    "tags": [
+      "definition",
+      "model"
+    ]
+  },
+  {
+    "id": "c1-02",
+    "chapter": "1",
+    "topic": "One-Agent Economy",
+    "type": "definition",
+    "front": "What does the Production Possibility Curve (PPC) represent?",
+    "back": "All possible combinations of two goods that can be produced with the available resources if they are used efficiently.",
+    "tags": [
+      "PPC",
+      "definition"
+    ]
+  },
+  {
+    "id": "c1-03",
+    "chapter": "1",
+    "topic": "One-Agent Economy",
+    "type": "concept",
+    "front": "What is an efficient production point?",
+    "back": "A point on the PPC where resources are fully used; producing more of one good requires producing less of the other.",
+    "tags": [
+      "PPC",
+      "efficiency"
+    ]
+  },
+  {
+    "id": "c1-04",
+    "chapter": "1",
+    "topic": "One-Agent Economy",
+    "type": "concept",
+    "front": "What is an inefficient production point?",
+    "back": "A point inside the PPC where resources are underutilized; output of at least one good can increase without reducing the other.",
+    "tags": [
+      "PPC",
+      "inefficiency"
+    ]
+  },
+  {
+    "id": "c1-05",
+    "chapter": "1",
+    "topic": "One-Agent Economy",
+    "type": "concept",
+    "front": "What is an unattainable production point?",
+    "back": "A point outside the PPC that cannot be produced with current resources and technology.",
+    "tags": [
+      "PPC",
+      "attainability"
+    ]
+  },
+  {
+    "id": "c1-06",
+    "chapter": "1",
+    "topic": "Two-Agent Economy",
+    "type": "definition",
+    "front": "What is absolute advantage?",
+    "back": "An agent has absolute advantage in an activity if they can perform it using fewer resources than another agent.",
+    "tags": [
+      "absolute advantage",
+      "trade"
+    ]
+  },
+  {
+    "id": "c1-07",
+    "chapter": "1",
+    "topic": "Two-Agent Economy",
+    "type": "definition",
+    "front": "What is opportunity cost?",
+    "back": "The value of the next best alternative that must be given up to take a particular action.",
+    "tags": [
+      "opportunity cost"
+    ]
+  },
+  {
+    "id": "c1-08",
+    "chapter": "1",
+    "topic": "Two-Agent Economy",
+    "type": "calculation",
+    "front": "How is opportunity cost linked to the slope of the PPC?",
+    "back": "Opportunity cost equals the slope of the PPC: it measures how much of one good must be forgone to produce more of the other.",
+    "tags": [
+      "PPC",
+      "slope",
+      "opportunity cost"
+    ]
+  },
+  {
+    "id": "c1-09",
+    "chapter": "1",
+    "topic": "Two-Agent Economy",
+    "type": "definition",
+    "front": "What is comparative advantage?",
+    "back": "An agent has comparative advantage in producing a good when their opportunity cost of producing that good is lower than another agent's.",
+    "tags": [
+      "comparative advantage",
+      "trade"
+    ]
+  },
+  {
+    "id": "c1-10",
+    "chapter": "1",
+    "topic": "Trade",
+    "type": "principle",
+    "front": "What is the principle of comparative advantage?",
+    "back": "Everyone can be better off when each agent or country specializes in the activities for which it has comparative advantage and then trades.",
+    "tags": [
+      "specialization",
+      "trade"
+    ]
+  },
+  {
+    "id": "c1-11",
+    "chapter": "1",
+    "topic": "Economy PPC",
+    "type": "principle",
+    "front": "What is the principle of increasing opportunity cost?",
+    "back": "As production of a good expands, producers with the lowest opportunity cost are used first; later units come from higher-cost producers, so opportunity cost rises.",
+    "tags": [
+      "increasing opportunity cost",
+      "PPC"
+    ]
+  },
+  {
+    "id": "c1-12",
+    "chapter": "1",
+    "topic": "Economy PPC",
+    "type": "graph",
+    "front": "Why does the economy-wide PPC bow outward from the origin?",
+    "back": "Because resources differ in opportunity cost. The economy uses low-cost producers first, so producing additional units becomes increasingly costly.",
+    "tags": [
+      "PPC",
+      "bowed out"
+    ]
+  },
+  {
+    "id": "c1-13",
+    "chapter": "1",
+    "topic": "International Trade",
+    "type": "definition",
+    "front": "What is the Consumption Possibility Curve (CPC)?",
+    "back": "All possible combinations of two goods that the agents in an economy can consume.",
+    "tags": [
+      "CPC",
+      "trade"
+    ]
+  },
+  {
+    "id": "c1-14",
+    "chapter": "1",
+    "topic": "International Trade",
+    "type": "comparison",
+    "front": "What is the difference between PPC and CPC?",
+    "back": "PPC describes what an economy can produce. CPC describes what it can consume. With trade, CPC can lie beyond the PPC.",
+    "tags": [
+      "PPC vs CPC",
+      "trade"
+    ]
+  },
+  {
+    "id": "c1-15",
+    "chapter": "1",
+    "topic": "International Trade",
+    "type": "concept",
+    "front": "Why can trade increase welfare?",
+    "back": "Because trade expands consumption opportunities. A country's welfare depends on what it can consume, not just what it can produce.",
+    "tags": [
+      "welfare",
+      "trade"
+    ]
+  }
+]

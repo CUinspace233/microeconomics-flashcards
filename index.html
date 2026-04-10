@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ECON1101 Review Cards</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero__badge">ECON1101 · Personal Exam Review</div>
+        <h1>Chapter 1 Flashcards</h1>
+        <p class="hero__text">
+          Formula-heavy revision cards for <strong>Comparative Advantage &amp; the Basis for Trade</strong>.
+          Built for calculation-focused exam prep.
+        </p>
+        <div class="hero__stats" id="heroStats"></div>
+      </header>
+
+      <main class="layout" id="mainLayout">
+        <aside class="panel controls-panel" id="controlsPanel">
+          <div class="panel__header">
+            <p class="eyebrow">Study Controls</p>
+            <h2>Session Setup</h2>
+            <p class="panel-note">Calculation cards are written as self-contained exam prompts, so you do not need to remember hidden setup from previous cards.</p>
+          </div>
+
+          <label class="field">
+            <span>Card filter</span>
+            <select id="topicFilter"></select>
+          </label>
+
+          <div class="toggle-group">
+            <label class="toggle">
+              <input type="checkbox" id="formulaOnly" />
+              <span>Formula / calculation cards only</span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="shuffleMode" checked />
+              <span>Shuffle cards</span>
+            </label>
+          </div>
+
+          <div class="button-grid">
+            <button id="startSessionBtn" class="btn btn--primary">Start session</button>
+            <button id="randomCardBtn" class="btn btn--ghost">Random card</button>
+            <button id="resetProgressBtn" class="btn btn--ghost">Reset progress</button>
+          </div>
+
+          <div class="progress-block">
+            <div class="progress-labels">
+              <span>Mastery</span>
+              <strong id="masteryText">0%</strong>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-bar__fill" id="masteryFill"></div>
+            </div>
+          </div>
+
+          <section class="mini-list" id="formulaSheet"></section>
+        </aside>
+
+        <section class="panel card-panel" id="cardPanel">
+          <div class="panel__header panel__header--wide">
+            <div>
+              <p class="eyebrow">Current Card</p>
+              <h2 id="cardTitle">Ready to study</h2>
+            </div>
+            <div class="session-meta" id="sessionMeta"></div>
+          </div>
+          <div class="context-strip" id="contextStrip">Self-contained exam-style prompts · English only</div>
+
+          <article class="flashcard" id="flashcard" aria-live="polite">
+            <div class="flashcard__face flashcard__face--front">
+              <div class="card-tags" id="cardTags"></div>
+              <p class="card-label">Question</p>
+              <h3 id="cardFront">Press “Start session” to load your first card.</h3>
+            </div>
+            <div class="flashcard__face flashcard__face--back hidden" id="cardBackFace">
+              <p class="card-label">Answer</p>
+              <div id="cardBack" class="card-answer"></div>
+            </div>
+          </article>
+
+          <div class="card-actions">
+            <button id="showAnswerBtn" class="btn btn--primary">Show answer</button>
+            <button id="flipBackBtn" class="btn btn--ghost hidden">Hide answer</button>
+            <button id="prevBtn" class="btn btn--ghost">Previous</button>
+            <button id="nextBtn" class="btn btn--ghost">Next</button>
+            <button id="exitFocusBtn" class="btn btn--ghost hidden">Exit focus</button>
+          </div>
+
+          <div class="rating-row">
+            <button id="againBtn" class="rating rating--again">Again</button>
+            <button id="hardBtn" class="rating rating--hard">Hard</button>
+            <button id="goodBtn" class="rating rating--good">Good</button>
+            <button id="easyBtn" class="rating rating--easy">Easy</button>
+          </div>
+        </section>
+      </main>
+
+      <section class="panel list-panel" id="listPanel">
+        <div class="panel__header panel__header--wide">
+          <div>
+            <p class="eyebrow">Card Library</p>
+            <h2>All Chapter 1 Cards</h2>
+          </div>
+          <p class="list-note">English cards, with extra formula memory and calculation prompts.</p>
+        </div>
+        <div id="cardList" class="card-list"></div>
+      </section>
+    </div>
+
+    <script src="data/chapter1-cards.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
