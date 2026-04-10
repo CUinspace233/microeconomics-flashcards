@@ -1,5 +1,9 @@
-const STORAGE_KEY = 'econ1101.chapter1.progress';
-const cards = window.chapter1Cards || [];
+const STORAGE_KEY = 'microeconomics.review.progress';
+const rawCards = [...(window.chapter1Cards || []), ...(window.chapter2Cards || [])];
+const cards = rawCards.map((card) => ({
+  ...card,
+  chapter: card.chapter || inferChapter(card.id),
+}));
 
 const state = {
   sessionQueue: [],
@@ -10,6 +14,7 @@ const state = {
   progress: loadProgress(),
 };
 
+const chapterFilter = document.getElementById('chapterFilter');
 const topicFilter = document.getElementById('topicFilter');
 const formulaOnly = document.getElementById('formulaOnly');
 const shuffleMode = document.getElementById('shuffleMode');
@@ -33,16 +38,27 @@ const cardList = document.getElementById('cardList');
 const sessionMeta = document.getElementById('sessionMeta');
 const formulaSheet = document.getElementById('formulaSheet');
 const contextStrip = document.getElementById('contextStrip');
+const mainLayout = document.getElementById('mainLayout');
+const listPanel = document.getElementById('listPanel');
+const topTabs = document.querySelectorAll('.top-tab');
 
 init();
 
+function inferChapter(id = '') {
+  if (id.startsWith('c1-')) return 'Chapter 1';
+  if (id.startsWith('c2-')) return 'Chapter 2';
+  return 'General';
+}
+
 function init() {
-  populateFilters();
+  populateChapterFilter();
+  populateTopicFilter();
   renderFormulaSheet();
   buildSession();
   renderHeroStats();
   renderCardList();
   attachEvents();
+  switchTab('study');
 }
 
 function loadProgress() {
@@ -57,9 +73,18 @@ function saveProgress() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state.progress));
 }
 
-function populateFilters() {
-  const topics = ['All topics', ...new Set(cards.map((card) => card.topic))];
+function populateChapterFilter() {
+  const chapters = ['All chapters', ...new Set(cards.map((card) => card.chapter))];
+  chapterFilter.innerHTML = chapters.map((chapter) => `<option value="${chapter}">${chapter}</option>`).join('');
+}
+
+function populateTopicFilter() {
+  const selectedChapter = chapterFilter.value || 'All chapters';
+  const visibleCards = cards.filter((card) => selectedChapter === 'All chapters' || card.chapter === selectedChapter);
+  const topics = ['All topics', ...new Set(visibleCards.map((card) => card.topic))];
+  const previous = topicFilter.value;
   topicFilter.innerHTML = topics.map((topic) => `<option value="${topic}">${topic}</option>`).join('');
+  topicFilter.value = topics.includes(previous) ? previous : 'All topics';
 }
 
 function attachEvents() {
@@ -80,9 +105,17 @@ function attachEvents() {
   });
 
   resetProgressBtn.addEventListener('click', () => {
-    if (!window.confirm('Reset all saved progress and review scheduling for Chapter 1?')) return;
+    if (!window.confirm('Reset all saved progress and review scheduling?')) return;
     state.progress = {};
     saveProgress();
+    buildSession();
+    renderHeroStats();
+    renderCardList();
+    renderCurrentCard();
+  });
+
+  chapterFilter.addEventListener('change', () => {
+    populateTopicFilter();
     buildSession();
     renderHeroStats();
     renderCardList();
@@ -92,19 +125,26 @@ function attachEvents() {
   topicFilter.addEventListener('change', () => {
     buildSession();
     renderHeroStats();
+    renderCardList();
     renderCurrentCard();
   });
 
   formulaOnly.addEventListener('change', () => {
     buildSession();
     renderHeroStats();
+    renderCardList();
     renderCurrentCard();
   });
 
   shuffleMode.addEventListener('change', () => {
     buildSession();
     renderHeroStats();
+    renderCardList();
     renderCurrentCard();
+  });
+
+  topTabs.forEach((tab) => {
+    tab.addEventListener('click', () => switchTab(tab.dataset.tab));
   });
 
   showAnswerBtn.addEventListener('click', () => toggleAnswer(true));
@@ -134,14 +174,16 @@ function attachEvents() {
 }
 
 function buildSession() {
+  const selectedChapter = chapterFilter.value || 'All chapters';
   const selectedTopic = topicFilter.value || 'All topics';
   const formulaFilter = formulaOnly.checked;
   state.shuffle = shuffleMode.checked;
 
   const filtered = cards.filter((card) => {
+    const chapterMatch = selectedChapter === 'All chapters' || card.chapter === selectedChapter;
     const topicMatch = selectedTopic === 'All topics' || card.topic === selectedTopic;
     const formulaMatch = !formulaFilter || card.formula;
-    return topicMatch && formulaMatch;
+    return chapterMatch && topicMatch && formulaMatch;
   });
 
   const sorted = sortCardsForSession(filtered);
@@ -171,10 +213,7 @@ function sortCardsForSession(filteredCards) {
     }
   });
 
-  if (state.shuffle) {
-    return [...shuffleArray(due), ...shuffleArray(unseen), ...shuffleArray(later)];
-  }
-
+  if (state.shuffle) return [...shuffleArray(due), ...shuffleArray(unseen), ...shuffleArray(later)];
   later.sort((a, b) => getNextReviewTime(a.id) - getNextReviewTime(b.id));
   return [...due, ...unseen, ...later];
 }
@@ -199,7 +238,7 @@ function renderCurrentCard() {
   if (!card) {
     cardTitle.textContent = 'No cards match this filter';
     cardTags.innerHTML = '';
-    cardFront.textContent = 'Try another topic or turn off the formula-only filter.';
+    cardFront.textContent = 'Try another chapter, topic, or turn off the formula-only filter.';
     cardBack.innerHTML = '';
     contextStrip.textContent = 'Adjust the filter to rebuild a valid study session.';
     cardBackFace.classList.add('hidden');
@@ -212,13 +251,14 @@ function renderCurrentCard() {
   const progress = state.progress[card.id];
   const reviewText = progress ? `Next review: ${formatRelativeReview(progress.nextReviewAt)}` : 'New card';
 
-  cardTitle.textContent = card.topic;
+  cardTitle.textContent = `${card.chapter} · ${card.topic}`;
   cardFront.textContent = card.front;
   cardBack.innerHTML = card.back;
   contextStrip.textContent = card.formula
     ? 'Self-contained calculation prompt · read the setup carefully before solving'
-    : 'Self-contained concept card · answer using Chapter 1 language and logic';
+    : 'Self-contained concept card · answer using microeconomics language and logic';
   cardTags.innerHTML = [
+    `<span class="tag">${card.chapter}</span>`,
     `<span class="tag">${card.type}</span>`,
     ...(card.formula ? ['<span class="tag tag--formula">formula-heavy</span>'] : []),
     ...card.tags.map((tag) => `<span class="tag">${tag}</span>`),
@@ -233,6 +273,15 @@ function toggleAnswer(visible) {
   cardBackFace.classList.toggle('hidden', !visible);
   showAnswerBtn.classList.toggle('hidden', visible);
   flipBackBtn.classList.toggle('hidden', !visible);
+}
+
+function switchTab(tabName) {
+  const isLibrary = tabName === 'library';
+  mainLayout.classList.toggle('hidden', isLibrary);
+  listPanel.classList.toggle('hidden', !isLibrary);
+  topTabs.forEach((tab) => {
+    tab.classList.toggle('top-tab--active', tab.dataset.tab === tabName);
+  });
 }
 
 function enterFocusMode() {
@@ -288,7 +337,6 @@ function rateCard(level) {
 
 function computeIntervalDays(previous, level) {
   const last = previous?.intervalDays || 0;
-
   if (level === 'again') return 0;
   if (level === 'hard') return Math.max(1, last ? Math.ceil(last * 1.5) : 1);
   if (level === 'good') return Math.max(2, last ? Math.ceil(last * 2.2) : 2);
@@ -297,18 +345,10 @@ function computeIntervalDays(previous, level) {
 }
 
 function rescheduleWithinSession(cardId, level) {
-  const offsets = {
-    again: 2,
-    hard: 5,
-    good: 10,
-    easy: null,
-  };
-
+  const offsets = { again: 2, hard: 5, good: 10, easy: null };
   state.sessionQueue = state.sessionQueue.filter((id, index) => !(id === cardId && index > state.currentIndex));
-
   const offset = offsets[level];
   if (offset === null) return;
-
   const insertAt = Math.min(state.currentIndex + offset, state.sessionQueue.length);
   state.sessionQueue.splice(insertAt, 0, cardId);
 }
@@ -321,7 +361,7 @@ function getNextReviewTime(cardId) {
 function renderHeroStats() {
   const reviewed = Object.keys(state.progress).length;
   const formulaCount = cards.filter((card) => card.formula).length;
-  const topicCount = new Set(cards.map((card) => card.topic)).size;
+  const chapterCount = new Set(cards.map((card) => card.chapter)).size;
   const dueCount = cards.filter((card) => isDue(card.id)).length;
   const averageScore = reviewed
     ? Object.values(state.progress).reduce((sum, item) => sum + item.score, 0) / (reviewed * 3)
@@ -331,7 +371,7 @@ function renderHeroStats() {
   heroStats.innerHTML = [
     `<div class="stat-chip"><strong>${cards.length}</strong> total cards</div>`,
     `<div class="stat-chip"><strong>${formulaCount}</strong> formula / calculation cards</div>`,
-    `<div class="stat-chip"><strong>${topicCount}</strong> topic buckets</div>`,
+    `<div class="stat-chip"><strong>${chapterCount}</strong> chapters loaded</div>`,
     `<div class="stat-chip"><strong>${dueCount}</strong> due now</div>`,
   ].join('');
 
@@ -341,11 +381,11 @@ function renderHeroStats() {
 
 function renderFormulaSheet() {
   const formulas = [
-    { title: 'Alberto time constraint', body: 'B + 2R = 16  →  R = 8 - 0.5B' },
+    { title: 'PPC / time constraint', body: 'Example: B + 2R = 16  →  R = 8 - 0.5B' },
     { title: 'Opportunity cost from PPC', body: 'OC of bananas = loss in rabbits / gain in bananas' },
-    { title: 'Reciprocal cost rule', body: 'If OC of 1 banana = 0.5 rabbit, then OC of 1 rabbit = 2 bananas' },
-    { title: 'Trade price condition', body: 'Exporter OC < trade price < importer OC' },
-    { title: 'Economy totals', body: 'Max bananas = 16 + 4 = 20, max rabbits = 8 + 4 = 12' },
+    { title: 'Profit', body: 'π = TR - TC, with TR = P × Q and TC = FC + VC' },
+    { title: 'Marginal cost', body: 'MC = ΔTC / ΔQ' },
+    { title: 'Supply elasticity', body: 'Elasticity = (%ΔQ / %ΔP) = (1 / slope) × (P / Q)' },
   ];
 
   formulaSheet.innerHTML = `<h3>Quick Formula Sheet</h3>${formulas
@@ -370,6 +410,7 @@ function renderCardList() {
       return `
         <article class="card-list-item">
           <div class="list-tags">
+            <span class="list-tag">${card.chapter}</span>
             <span class="list-tag">${card.topic}</span>
             <span class="list-tag">${card.type}</span>
             ${card.formula ? '<span class="list-tag list-tag--formula">formula</span>' : ''}
@@ -392,11 +433,16 @@ function renderCardList() {
 }
 
 function jumpToCard(cardId) {
-  const selectedTopic = topicFilter.value || 'All topics';
+  switchTab('study');
   const target = cards.find((card) => card.id === cardId);
   if (!target) return;
 
-  if (selectedTopic !== 'All topics' && selectedTopic !== target.topic) {
+  if ((chapterFilter.value || 'All chapters') !== target.chapter) {
+    chapterFilter.value = target.chapter;
+    populateTopicFilter();
+  }
+
+  if ((topicFilter.value || 'All topics') !== target.topic) {
     topicFilter.value = target.topic;
   }
 
@@ -423,10 +469,8 @@ function formatRelativeReview(iso) {
   if (!iso) return 'now';
   const diff = new Date(iso).getTime() - Date.now();
   const day = 24 * 60 * 60 * 1000;
-
   if (diff <= 0) return 'now';
   if (diff < day) return 'later today';
-
   const days = Math.ceil(diff / day);
   return days === 1 ? 'tomorrow' : `${days} days`;
 }

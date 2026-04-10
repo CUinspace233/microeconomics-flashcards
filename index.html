@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ECON1101 Review Cards</title>
+    <title>Microeconomics Review Cards</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -12,14 +12,18 @@
   <body>
     <div class="page-shell">
       <header class="hero">
-        <div class="hero__badge">ECON1101 · Personal Exam Review</div>
-        <h1>Chapter 1 Flashcards</h1>
+        <div class="hero__badge">Personal Microeconomics Review</div>
+        <h1>Microeconomics Flashcards</h1>
         <p class="hero__text">
-          Formula-heavy revision cards for <strong>Comparative Advantage &amp; the Basis for Trade</strong>.
-          Built for calculation-focused exam prep.
+          Formula-heavy revision cards for core microeconomics topics, built for calculation-focused exam prep.
         </p>
         <div class="hero__stats" id="heroStats"></div>
       </header>
+
+      <nav class="top-tabs" aria-label="Main sections">
+        <button class="top-tab top-tab--active" data-tab="study">Study</button>
+        <button class="top-tab" data-tab="library">Card Library</button>
+      </nav>
 
       <main class="layout" id="mainLayout">
         <aside class="panel controls-panel" id="controlsPanel">
@@ -30,7 +34,12 @@
           </div>
 
           <label class="field">
-            <span>Card filter</span>
+            <span>Chapter</span>
+            <select id="chapterFilter"></select>
+          </label>
+
+          <label class="field">
+            <span>Topic</span>
             <select id="topicFilter"></select>
           </label>
 
@@ -103,19 +112,20 @@
         </section>
       </main>
 
-      <section class="panel list-panel" id="listPanel">
+      <section class="panel list-panel hidden" id="listPanel">
         <div class="panel__header panel__header--wide">
           <div>
             <p class="eyebrow">Card Library</p>
-            <h2>All Chapter 1 Cards</h2>
+            <h2>All Flashcards</h2>
           </div>
-          <p class="list-note">English cards, with extra formula memory and calculation prompts.</p>
+          <p class="list-note">English cards with self-contained formula memory and calculation prompts.</p>
         </div>
         <div id="cardList" class="card-list"></div>
       </section>
     </div>
 
     <script src="data/chapter1-cards.js"></script>
+    <script src="data/chapter2-cards.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

@@ -1,6 +1,6 @@
-# Economics Review Cards
+# Microeconomics Review Cards
 
-A lightweight flashcard website for Chapter 1 microeconomics revision.
+A lightweight flashcard website for chapter-based microeconomics revision.
 
 ## Included
 - English flashcards only
@@ -15,6 +15,7 @@ A lightweight flashcard website for Chapter 1 microeconomics revision.
 - `styles.css`
 - `app.js`
 - `data/chapter1-cards.js`
+- `data/chapter2-cards.js`
 - `output/chapter1_sample/` for extracted Chapter 1 notes and sample data
 
 ## Run locally
@@ -31,9 +32,10 @@ http://localhost:8000
 ```
 
 ## Current scope
-- Chapter 1 only
-- 36 flashcards
-- Emphasis on PPC, opportunity cost, comparative advantage, trade prices, and calculation habits
+- Chapters 1-2 loaded
+- Chapter filter + topic filter
+- Emphasis on PPC, opportunity cost, comparative advantage, supply, profit, shutdown rules, and elasticity
+- Built-in review scheduling with spaced repetition behaviour
 
 ## Next suggested step
-Expand the same structure to Chapters 2-10 and add spaced repetition scheduling.
+Expand the same structure to Chapters 3-10.
