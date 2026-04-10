@@ -30,7 +30,6 @@ const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const exitFocusBtn = document.getElementById('exitFocusBtn');
 const startSessionBtn = document.getElementById('startSessionBtn');
-const randomCardBtn = document.getElementById('randomCardBtn');
 const resetProgressBtn = document.getElementById('resetProgressBtn');
 const masteryText = document.getElementById('masteryText');
 const masteryFill = document.getElementById('masteryFill');
@@ -90,16 +89,6 @@ function populateTopicFilter() {
 function attachEvents() {
   startSessionBtn.addEventListener('click', () => {
     buildSession();
-    enterFocusMode();
-    renderCurrentCard();
-  });
-
-  randomCardBtn.addEventListener('click', () => {
-    buildSession();
-    if (state.sessionQueue.length) {
-      state.currentIndex = Math.floor(Math.random() * state.sessionQueue.length);
-    }
-    state.revealAnswer = false;
     enterFocusMode();
     renderCurrentCard();
   });
