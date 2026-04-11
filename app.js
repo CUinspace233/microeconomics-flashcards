@@ -1,5 +1,11 @@
 const STORAGE_KEY = 'microeconomics.review.progress';
-const rawCards = [...(window.chapter1Cards || []), ...(window.chapter2Cards || [])];
+const rawCards = [
+  ...(window.chapter1Cards || []),
+  ...(window.chapter2Cards || []),
+  ...(window.chapter3Cards || []),
+  ...(window.chapter4Cards || []),
+  ...(window.chapter5Cards || []),
+];
 const cards = rawCards.map((card) => ({
   ...card,
   chapter: card.chapter || inferChapter(card.id),
@@ -44,9 +50,8 @@ const topTabs = document.querySelectorAll('.top-tab');
 init();
 
 function inferChapter(id = '') {
-  if (id.startsWith('c1-')) return 'Chapter 1';
-  if (id.startsWith('c2-')) return 'Chapter 2';
-  return 'General';
+  const match = id.match(/^c(\d+)-/);
+  return match ? `Chapter ${match[1]}` : 'General';
 }
 
 function init() {
@@ -375,6 +380,8 @@ function renderFormulaSheet() {
     { title: 'Profit', body: 'π = TR - TC, with TR = P × Q and TC = FC + VC' },
     { title: 'Marginal cost', body: 'MC = ΔTC / ΔQ' },
     { title: 'Supply elasticity', body: 'Elasticity = (%ΔQ / %ΔP) = (1 / slope) × (P / Q)' },
+    { title: 'Demand elasticity', body: 'PED = (%ΔQd / %ΔP); on a line: PED = (1 / slope) × (P / Q)' },
+    { title: 'Tax deadweight loss', body: 'DWL = 0.5 × tax × reduction in quantity' },
   ];
 
   formulaSheet.innerHTML = `<h3>Quick Formula Sheet</h3>${formulas
