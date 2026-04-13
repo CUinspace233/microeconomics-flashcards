@@ -20,38 +20,38 @@ window.chapter1Cards = [
   {
     id: 'c1-04',
     topic: 'One-Agent Economy',
-    type: 'definition',
+    type: 'graph',
     formula: false,
-    front: 'What does the Production Possibility Curve (PPC) represent?',
-    back: 'The PPC shows <strong>all maximum output combinations</strong> of two goods that can be produced with available resources when those resources are used efficiently.',
-    tags: ['PPC', 'definition']
+    front: 'An exam graph shows all maximum combinations of bananas and rabbits Alberto can produce in a day using his time efficiently. What is that curve called?',
+    back: 'It is the <strong>PPC (Production Possibility Curve)</strong>. It shows all maximum output combinations that can be produced with available resources when those resources are used efficiently.',
+    tags: ['PPC', 'graph', 'exam style']
   },
   {
     id: 'c1-05',
     topic: 'One-Agent Economy',
     type: 'graph',
     formula: false,
-    front: 'What is an efficient production point?',
-    back: 'A point <strong>on the PPC</strong>. Resources are fully used, so producing more of one good requires giving up some of the other good.',
-    tags: ['efficiency', 'graph']
+    front: 'If a production bundle lies exactly on Alberto’s PPC, how should it be classified: efficient, inefficient, or unattainable?',
+    back: 'It is <strong>efficient</strong>. A point on the PPC means resources are fully used, so producing more of one good requires giving up some of the other good.',
+    tags: ['efficiency', 'graph', 'exam style']
   },
   {
     id: 'c1-06',
     topic: 'One-Agent Economy',
     type: 'graph',
     formula: false,
-    front: 'What is an inefficient production point?',
-    back: 'A point <strong>inside the PPC</strong>. Resources are underused, so output can increase without sacrificing the other good.',
-    tags: ['inefficiency', 'graph']
+    front: 'If a production bundle lies inside Alberto’s PPC, how should it be classified: efficient, inefficient, or unattainable?',
+    back: 'It is <strong>inefficient</strong>. A point inside the PPC means resources are underused, so output can increase without sacrificing the other good.',
+    tags: ['inefficiency', 'graph', 'exam style']
   },
   {
     id: 'c1-07',
     topic: 'One-Agent Economy',
     type: 'graph',
     formula: false,
-    front: 'What is an unattainable production point?',
-    back: 'A point <strong>outside the PPC</strong>. It cannot be produced with current resources and technology.',
-    tags: ['attainability', 'graph']
+    front: 'If a production bundle lies outside Alberto’s PPC, how should it be classified: efficient, inefficient, or unattainable?',
+    back: 'It is <strong>unattainable</strong>. A point outside the PPC cannot be produced with current resources and technology.',
+    tags: ['attainability', 'graph', 'exam style']
   },
   {
     id: 'c1-08',
@@ -74,20 +74,20 @@ window.chapter1Cards = [
   {
     id: 'c1-10',
     topic: 'Two-Agent Economy',
-    type: 'definition',
-    formula: false,
-    front: 'What is absolute advantage?',
-    back: 'An agent has absolute advantage if they can produce a good using <strong>fewer resources</strong> than another agent.',
-    tags: ['absolute advantage', 'definition']
+    type: 'comparison',
+    formula: true,
+    front: 'Alberto can produce <code>16</code> bananas in a day, while Leo can produce <code>4</code> bananas in a day using the same amount of time. Who has absolute advantage in bananas?',
+    back: '<strong>Alberto</strong> has absolute advantage in bananas because he can produce <code>more output with the same resources</code>.<br>Absolute advantage compares productivity, not opportunity cost.',
+    tags: ['absolute advantage', 'bananas', 'exam style']
   },
   {
     id: 'c1-11',
     topic: 'Two-Agent Economy',
-    type: 'definition',
-    formula: false,
-    front: 'What is opportunity cost?',
-    back: 'Opportunity cost is the <strong>value of the next best alternative forgone</strong> when a choice is made.',
-    tags: ['opportunity cost', 'definition']
+    type: 'comparison',
+    formula: true,
+    front: 'Alberto can produce <code>16</code> bananas or <code>8</code> rabbits in a day. What is the opportunity cost of <code>1</code> rabbit for Alberto?',
+    back: 'The opportunity cost of <code>1</code> rabbit is <code>16 / 8 = 2</code> bananas.<br>Opportunity cost means the value of the next best alternative forgone.',
+    tags: ['opportunity cost', 'rabbits', 'exam style']
   },
   {
     id: 'c1-12',
@@ -137,11 +137,11 @@ window.chapter1Cards = [
   {
     id: 'c1-17',
     topic: 'Trade',
-    type: 'principle',
-    formula: false,
-    front: 'State the principle of comparative advantage.',
-    back: 'Everyone can be better off if each person or country <strong>specialises in the good with lower opportunity cost</strong> and then trades.',
-    tags: ['principle', 'trade']
+    type: 'comparison',
+    formula: true,
+    front: 'If Alberto has comparative advantage in bananas and Leo has comparative advantage in rabbits, what pattern of specialization should generate gains from trade?',
+    back: '<strong>Alberto should specialize relatively more in bananas</strong> and <strong>Leo should specialize relatively more in rabbits</strong>.<br>The principle of comparative advantage says gains from trade arise when each side specializes in the good with lower opportunity cost.',
+    tags: ['comparative advantage', 'trade', 'exam style']
   },
   {
     id: 'c1-18',
@@ -236,11 +236,11 @@ window.chapter1Cards = [
   {
     id: 'c1-28',
     topic: 'International Trade',
-    type: 'definition',
+    type: 'graph',
     formula: false,
-    front: 'What is the Consumption Possibility Curve (CPC)?',
-    back: 'The CPC shows all combinations of goods that an economy can <strong>consume</strong>. In an open economy it depends on world prices and trade.',
-    tags: ['CPC', 'definition']
+    front: 'In an open-economy graph, what curve shows the combinations of goods the economy can consume after producing and trading at world prices?',
+    back: 'That is the <strong>CPC (Consumption Possibility Curve)</strong>. It shows all combinations the economy can consume, and with trade it can lie outside the PPC.',
+    tags: ['CPC', 'graph', 'exam style']
   },
   {
     id: 'c1-29',
@@ -283,9 +283,9 @@ window.chapter1Cards = [
     topic: 'Many-Agent Economy',
     type: 'graph',
     formula: false,
-    front: 'In a many-agent economy where the PPC is smooth rather than kinked, why do we calculate slope at a point?',
-    back: 'Because with many agents the PPC becomes smooth, so the relevant marginal opportunity cost is the <strong>slope at a point</strong>, not the slope of a large segment.',
-    tags: ['many-agent', 'slope']
+    front: 'A many-agent economy has a smooth PPC rather than a few straight segments. In an exam question, why should you use the slope at a point rather than the slope of a whole segment?',
+    back: 'Because on a smooth PPC the relevant <strong>marginal opportunity cost</strong> is the slope at a point. There is no single constant slope for a large segment.',
+    tags: ['many-agent', 'slope', 'exam style']
   },
   {
     id: 'c1-34',
