@@ -19,11 +19,12 @@ html, body { margin: 0; padding: 0; }
 body {
   font-family: 'Manrope', sans-serif;
   color: var(--text);
-  background:
-    radial-gradient(circle at top left, rgba(127, 215, 208, 0.12), transparent 35%),
-    radial-gradient(circle at top right, rgba(169, 160, 255, 0.16), transparent 32%),
-    linear-gradient(160deg, #0c0e14 0%, #10131b 45%, #141925 100%);
+  background: linear-gradient(160deg, #0c0e14 0%, #10131b 45%, #141925 100%);
   min-height: 100vh;
+}
+
+body.library-view {
+  background: linear-gradient(160deg, #0c0e14 0%, #10131b 45%, #141925 100%);
 }
 
 .page-shell {
@@ -145,6 +146,12 @@ body {
 
 .controls-panel,
 .card-panel,
+.list-panel {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01)),
+    var(--panel-strong);
+}
+
 .list-panel {
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01)),
@@ -471,7 +478,7 @@ body.focus-mode .session-meta::after {
   border: 1px solid var(--line);
   border-radius: 22px;
   padding: 16px;
-  background: rgba(255, 255, 255, 0.025);
+  background: rgba(9, 10, 16, 0.52);
   display: grid;
   gap: 12px;
 }

@@ -325,6 +325,7 @@ function switchTab(tabName) {
   const isLibrary = tabName === 'library';
   mainLayout.classList.toggle('hidden', isLibrary);
   listPanel.classList.toggle('hidden', !isLibrary);
+  document.body.classList.toggle('library-view', isLibrary);
   topTabs.forEach((tab) => {
     tab.classList.toggle('top-tab--active', tab.dataset.tab === tabName);
   });
