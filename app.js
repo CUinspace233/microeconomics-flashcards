@@ -39,6 +39,7 @@ const showAnswerBtn = document.getElementById('showAnswerBtn');
 const flipBackBtn = document.getElementById('flipBackBtn');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
+const enterFocusBtn = document.getElementById('enterFocusBtn');
 const exitFocusBtn = document.getElementById('exitFocusBtn');
 const startSessionBtn = document.getElementById('startSessionBtn');
 const resetProgressBtn = document.getElementById('resetProgressBtn');
@@ -150,6 +151,10 @@ function attachEvents() {
   flipBackBtn.addEventListener('click', () => toggleAnswer(false));
   nextBtn.addEventListener('click', nextCard);
   prevBtn.addEventListener('click', prevCard);
+  enterFocusBtn.addEventListener('click', () => {
+    enterFocusMode();
+    renderCurrentCard();
+  });
   exitFocusBtn.addEventListener('click', exitFocusMode);
 
   document.addEventListener('keydown', (event) => {
@@ -286,12 +291,14 @@ function switchTab(tabName) {
 function enterFocusMode() {
   state.focusMode = true;
   document.body.classList.add('focus-mode');
+  enterFocusBtn.classList.add('hidden');
   exitFocusBtn.classList.remove('hidden');
 }
 
 function exitFocusMode() {
   state.focusMode = false;
   document.body.classList.remove('focus-mode');
+  enterFocusBtn.classList.remove('hidden');
   exitFocusBtn.classList.add('hidden');
 }
 
