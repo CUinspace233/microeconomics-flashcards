@@ -7,6 +7,9 @@ const rawCards = [
   ...(window.chapter5Cards || []),
   ...(window.chapter6Cards || []),
   ...(window.chapter7Cards || []),
+  ...(window.chapter8Cards || []),
+  ...(window.chapter9Cards || []),
+  ...(window.chapter10Cards || []),
 ];
 const cards = rawCards.map((card) => ({
   ...card,
@@ -386,6 +389,8 @@ function renderFormulaSheet() {
     { title: 'Tax deadweight loss', body: 'DWL = 0.5 × tax × reduction in quantity' },
     { title: 'Imports / exports', body: 'Imports = Qd - Qs at Pw; Exports = Qs - Qd at Pw' },
     { title: 'Monopoly rule', body: 'Choose Q where MR = MC, then use demand curve to find price' },
+    { title: 'Externalities', body: 'MSB = MPB + MEB; MSC = MPC + MEC; tax/subsidy should match external effect' },
+    { title: 'Public goods', body: 'For public goods use vertical summation: ΣMB = MC (Samuelson condition)' },
   ];
 
   formulaSheet.innerHTML = `<h3>Quick Formula Sheet</h3>${formulas
