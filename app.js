@@ -256,7 +256,7 @@ function renderCurrentCard() {
   const reviewText = progress ? `Next review: ${formatRelativeReview(progress.nextReviewAt)}` : 'New card';
 
   cardTitle.textContent = `${card.chapter} · ${card.topic}`;
-  cardFront.textContent = card.front;
+  cardFront.innerHTML = card.front;
   cardBack.innerHTML = card.back;
   contextStrip.textContent = card.formula
     ? 'Self-contained calculation prompt · read the setup carefully before solving'
