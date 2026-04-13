@@ -184,8 +184,8 @@ window.chapter1Cards = [
     topic: 'Economy PPC',
     type: 'formula',
     formula: true,
-    front: 'At the economy-wide all-rabbits endpoint <code>(0, 12)</code>, the economy starts producing its first bananas. Who should switch from rabbits to bananas first: Alberto or Leo?',
-    back: '<strong>Alberto</strong>, because his opportunity cost of bananas is lower: <code>0.5 rabbit</code> versus Leo’s <code>1 rabbit</code>. He gives up fewer rabbits per extra banana.',
+    front: 'Alberto can produce <code>16</code> bananas or <code>8</code> rabbits, while Leo can produce <code>4</code> bananas or <code>4</code> rabbits. At the economy-wide all-rabbits endpoint <code>(0, 12)</code>, who should switch from rabbits to bananas first?',
+    back: 'Compute opportunity cost of bananas.<br>Alberto: <code>8/16 = 0.5</code> rabbit per banana.<br>Leo: <code>4/4 = 1</code> rabbit per banana.<br><strong>Alberto</strong> should switch first because he gives up fewer rabbits per extra banana.',
     tags: ['economy PPC', 'endpoint', 'bananas']
   },
   {
@@ -193,8 +193,8 @@ window.chapter1Cards = [
     topic: 'Economy PPC',
     type: 'formula',
     formula: true,
-    front: 'At the economy-wide all-bananas endpoint <code>(20, 0)</code>, the economy starts producing its first rabbits. Who should switch from bananas to rabbits first: Alberto or Leo?',
-    back: '<strong>Leo</strong>, because his opportunity cost of rabbits is lower: <code>1 banana</code> versus Alberto’s <code>2 bananas</code>. He gives up fewer bananas per extra rabbit.',
+    front: 'Alberto can produce <code>16</code> bananas or <code>8</code> rabbits, while Leo can produce <code>4</code> bananas or <code>4</code> rabbits. At the economy-wide all-bananas endpoint <code>(20, 0)</code>, who should switch from bananas to rabbits first?',
+    back: 'Compute opportunity cost of rabbits.<br>Alberto: <code>16/8 = 2</code> bananas per rabbit.<br>Leo: <code>4/4 = 1</code> banana per rabbit.<br><strong>Leo</strong> should switch first because he gives up fewer bananas per extra rabbit.',
     tags: ['economy PPC', 'endpoint', 'rabbits']
   },
   {
@@ -220,18 +220,18 @@ window.chapter1Cards = [
     topic: 'Economy PPC',
     type: 'formula',
     formula: true,
-    front: 'If the first segment of the economy PPC uses Alberto only, and Alberto’s opportunity cost of 1 banana is 0.5 rabbit, what is the slope of the first banana-PPC segment?',
-    back: 'The first segment uses Alberto only, so the slope equals Alberto’s opportunity cost of bananas: <strong>0.5 rabbit per banana</strong> (in absolute value).',
-    tags: ['slope', 'segment']
+    front: 'Alberto can produce <code>16</code> bananas or <code>8</code> rabbits, and Leo can produce <code>4</code> bananas or <code>4</code> rabbits. If the first bananas on the economy-wide PPC are produced by Alberto, what is the slope of the first banana-PPC segment in absolute value?',
+    back: 'The first segment is determined by Alberto’s opportunity cost of bananas.<br><code>OC of 1 banana = 8/16 = 0.5</code> rabbit.<br>So the slope of the first segment is <strong>0.5 rabbit per banana</strong> in absolute value.',
+    tags: ['slope', 'segment', 'bananas']
   },
   {
     id: 'c1-27',
     topic: 'Economy PPC',
     type: 'formula',
     formula: true,
-    front: 'If Alberto is fully exhausted and extra bananas must be produced by Leo, whose opportunity cost of 1 banana is 1 rabbit, what is the slope of the second banana-PPC segment?',
-    back: 'After Alberto is exhausted, Leo produces extra bananas. The slope becomes Leo’s opportunity cost: <strong>1 rabbit per banana</strong> (in absolute value).',
-    tags: ['slope', 'segment']
+    front: 'Alberto can produce <code>16</code> bananas or <code>8</code> rabbits, and Leo can produce <code>4</code> bananas or <code>4</code> rabbits. After Alberto is fully specialized in bananas, extra bananas must come from Leo. What is the slope of the second banana-PPC segment in absolute value?',
+    back: 'The second segment is determined by Leo’s opportunity cost of bananas.<br><code>OC of 1 banana = 4/4 = 1</code> rabbit.<br>So the slope of the second segment is <strong>1 rabbit per banana</strong> in absolute value.',
+    tags: ['slope', 'segment', 'bananas']
   },
   {
     id: 'c1-28',
