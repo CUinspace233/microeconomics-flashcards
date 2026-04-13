@@ -18,6 +18,8 @@ const cards = rawCards.map((card) => ({
   chapter: card.chapter || inferChapter(card.id),
 }));
 
+const LIBRARY_PAGE_SIZE = 24;
+
 const state = {
   sessionQueue: [],
   currentIndex: 0,
@@ -26,6 +28,7 @@ const state = {
   focusMode: false,
   progress: loadProgress(),
   dailyGoalLog: loadDailyGoalLog(),
+  libraryPage: 1,
 };
 
 const chapterFilter = document.getElementById('chapterFilter');
@@ -49,6 +52,12 @@ const resetProgressBtn = document.getElementById('resetProgressBtn');
 const masteryText = document.getElementById('masteryText');
 const masteryFill = document.getElementById('masteryFill');
 const cardList = document.getElementById('cardList');
+const libraryChapterFilter = document.getElementById('libraryChapterFilter');
+const libraryFirstBtn = document.getElementById('libraryFirstBtn');
+const libraryPrevBtn = document.getElementById('libraryPrevBtn');
+const libraryNextBtn = document.getElementById('libraryNextBtn');
+const libraryLastBtn = document.getElementById('libraryLastBtn');
+const libraryPageMeta = document.getElementById('libraryPageMeta');
 const sessionMeta = document.getElementById('sessionMeta');
 const formulaSheet = document.getElementById('formulaSheet');
 const contextStrip = document.getElementById('contextStrip');
@@ -67,6 +76,7 @@ function init() {
   populateChapterFilter();
   populateTopicFilter();
   renderFormulaSheet();
+  populateLibraryChapterFilter();
   buildSession();
   renderHeroStats();
   renderCardList();
@@ -130,6 +140,11 @@ function populateTopicFilter() {
   topicFilter.value = topics.includes(previous) ? previous : 'All topics';
 }
 
+function populateLibraryChapterFilter() {
+  const chapters = ['All chapters', ...new Set(cards.map((card) => card.chapter))];
+  libraryChapterFilter.innerHTML = chapters.map((chapter) => `<option value="${chapter}">${chapter}</option>`).join('');
+}
+
 function attachEvents() {
   startSessionBtn.addEventListener('click', () => {
     buildSession();
@@ -186,6 +201,14 @@ function attachEvents() {
   flipBackBtn.addEventListener('click', () => toggleAnswer(false));
   nextBtn.addEventListener('click', nextCard);
   prevBtn.addEventListener('click', prevCard);
+  libraryChapterFilter.addEventListener('change', () => {
+    state.libraryPage = 1;
+    renderCardList();
+  });
+  libraryFirstBtn.addEventListener('click', () => setLibraryPage(1));
+  libraryPrevBtn.addEventListener('click', () => changeLibraryPage(-1));
+  libraryNextBtn.addEventListener('click', () => changeLibraryPage(1));
+  libraryLastBtn.addEventListener('click', () => setLibraryPage(getLibraryTotalPages()));
   enterFocusBtn.addEventListener('click', () => {
     enterFocusMode();
     renderCurrentCard();
@@ -452,8 +475,31 @@ function renderFormulaSheet() {
     .join('')}`;
 }
 
+function getFilteredLibraryCards() {
+  const selectedChapter = libraryChapterFilter.value || 'All chapters';
+  return cards.filter((card) => selectedChapter === 'All chapters' || card.chapter === selectedChapter);
+}
+
+function getLibraryTotalPages() {
+  return Math.max(1, Math.ceil(getFilteredLibraryCards().length / LIBRARY_PAGE_SIZE));
+}
+
 function renderCardList() {
-  cardList.innerHTML = cards
+  const libraryCards = getFilteredLibraryCards();
+  const totalPages = Math.max(1, Math.ceil(libraryCards.length / LIBRARY_PAGE_SIZE));
+  state.libraryPage = Math.min(Math.max(1, state.libraryPage), totalPages);
+  const startIndex = (state.libraryPage - 1) * LIBRARY_PAGE_SIZE;
+  const visibleCards = libraryCards.slice(startIndex, startIndex + LIBRARY_PAGE_SIZE);
+  const startLabel = libraryCards.length ? startIndex + 1 : 0;
+  const endLabel = libraryCards.length ? Math.min(startIndex + visibleCards.length, libraryCards.length) : 0;
+
+  libraryPageMeta.textContent = `Page ${state.libraryPage} of ${totalPages} · Showing ${startLabel}-${endLabel} of ${libraryCards.length}`;
+  libraryFirstBtn.disabled = state.libraryPage === 1;
+  libraryPrevBtn.disabled = state.libraryPage === 1;
+  libraryNextBtn.disabled = state.libraryPage === totalPages;
+  libraryLastBtn.disabled = state.libraryPage === totalPages;
+
+  cardList.innerHTML = visibleCards
     .map((card) => {
       const progress = state.progress[card.id];
       const scoreLabel = progress
@@ -482,6 +528,16 @@ function renderCardList() {
   cardList.querySelectorAll('button[data-card-id]').forEach((button) => {
     button.addEventListener('click', () => jumpToCard(button.dataset.cardId));
   });
+}
+
+function setLibraryPage(page) {
+  state.libraryPage = Math.min(Math.max(1, page), getLibraryTotalPages());
+  renderCardList();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function changeLibraryPage(direction) {
+  setLibraryPage(state.libraryPage + direction);
 }
 
 function jumpToCard(cardId) {
