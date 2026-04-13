@@ -1,4 +1,6 @@
 const STORAGE_KEY = 'microeconomics.review.progress';
+const DAILY_GOAL_KEY = 'microeconomics.review.daily-goal-log';
+const DAILY_GOAL_TARGET = 30;
 const rawCards = [
   ...(window.chapter1Cards || []),
   ...(window.chapter2Cards || []),
@@ -23,6 +25,7 @@ const state = {
   shuffle: true,
   focusMode: false,
   progress: loadProgress(),
+  dailyGoalLog: loadDailyGoalLog(),
 };
 
 const chapterFilter = document.getElementById('chapterFilter');
@@ -83,6 +86,36 @@ function saveProgress() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state.progress));
 }
 
+function loadDailyGoalLog() {
+  try {
+    return JSON.parse(localStorage.getItem(DAILY_GOAL_KEY)) || [];
+  } catch {
+    return [];
+  }
+}
+
+function saveDailyGoalLog() {
+  localStorage.setItem(DAILY_GOAL_KEY, JSON.stringify(state.dailyGoalLog));
+}
+
+function getTodayKey(date = new Date()) {
+  return date.toISOString().slice(0, 10);
+}
+
+function getTodayReviewCount() {
+  const today = getTodayKey();
+  return state.dailyGoalLog.filter((item) => item.day === today).length;
+}
+
+function recordDailyStudy(cardId) {
+  const today = getTodayKey();
+  const alreadyLogged = state.dailyGoalLog.some((item) => item.day === today && item.cardId === cardId);
+  if (alreadyLogged) return;
+  state.dailyGoalLog = state.dailyGoalLog.filter((item) => item.day >= today);
+  state.dailyGoalLog.push({ cardId, day: today, studiedAt: new Date().toISOString() });
+  saveDailyGoalLog();
+}
+
 function populateChapterFilter() {
   const chapters = ['All chapters', ...new Set(cards.map((card) => card.chapter))];
   chapterFilter.innerHTML = chapters.map((chapter) => `<option value="${chapter}">${chapter}</option>`).join('');
@@ -107,7 +140,9 @@ function attachEvents() {
   resetProgressBtn.addEventListener('click', () => {
     if (!window.confirm('Reset all saved progress and review scheduling?')) return;
     state.progress = {};
+    state.dailyGoalLog = [];
     saveProgress();
+    saveDailyGoalLog();
     buildSession();
     renderHeroStats();
     renderCardList();
@@ -274,6 +309,13 @@ function renderCurrentCard() {
 
 function toggleAnswer(visible) {
   state.revealAnswer = visible;
+  if (visible) {
+    const card = getCurrentCard();
+    if (card) {
+      recordDailyStudy(card.id);
+      renderHeroStats();
+    }
+  }
   cardBackFace.classList.toggle('hidden', !visible);
   showAnswerBtn.classList.toggle('hidden', visible);
   flipBackBtn.classList.toggle('hidden', !visible);
@@ -365,14 +407,11 @@ function getNextReviewTime(cardId) {
 }
 
 function renderHeroStats() {
-  const reviewed = Object.keys(state.progress).length;
   const formulaCount = cards.filter((card) => card.formula).length;
   const chapterCount = new Set(cards.map((card) => card.chapter)).size;
   const dueCount = cards.filter((card) => isDue(card.id)).length;
-  const averageScore = reviewed
-    ? Object.values(state.progress).reduce((sum, item) => sum + item.score, 0) / (reviewed * 3)
-    : 0;
-  const mastery = Math.round(averageScore * 100);
+  const todayReviewCount = getTodayReviewCount();
+  const goalProgress = Math.min(100, Math.round((todayReviewCount / DAILY_GOAL_TARGET) * 100));
 
   heroStats.innerHTML = [
     `<div class="stat-chip"><strong>${cards.length}</strong> total cards</div>`,
@@ -381,8 +420,8 @@ function renderHeroStats() {
     `<div class="stat-chip"><strong>${dueCount}</strong> due now</div>`,
   ].join('');
 
-  masteryText.textContent = `${mastery}%`;
-  masteryFill.style.width = `${mastery}%`;
+  masteryText.textContent = `${todayReviewCount} / ${DAILY_GOAL_TARGET} studied`;
+  masteryFill.style.width = `${goalProgress}%`;
 }
 
 function renderFormulaSheet() {
