@@ -50,7 +50,7 @@ window.chapter10Cards = [
     type: 'definition',
     formula: false,
     front: 'What is marginal social benefit (MSB) for a public good?',
-    back: 'Marginal social benefit is the vertical sum of individuals’ marginal benefits from the public good.',
+    back: 'Marginal social benefit (MSB) is the vertical sum of individuals’ marginal benefits from the public good.',
     tags: ['MSB']
   },
   {
@@ -68,7 +68,7 @@ window.chapter10Cards = [
     type: 'definition',
     formula: true,
     front: 'What is the Samuelson condition for the efficient quantity of a public good?',
-    back: 'The Samuelson condition says that the efficient quantity of a public good is where the sum of individual marginal benefits equals marginal cost: <code>ΣMB = MC</code>.',
+    back: 'The Samuelson condition says that the efficient quantity of a public good is where the sum of individual marginal benefits equals marginal cost: <code>ΣMB = MC</code>.<br>Here <code>MB</code> means marginal benefit and <code>MC</code> means marginal cost.',
     tags: ['Samuelson condition', 'formula']
   },
   {
@@ -77,7 +77,7 @@ window.chapter10Cards = [
     type: 'calculation',
     formula: true,
     front: 'Anna’s demand for cleaner hours is <code>P = 50 - 5Q</code> and Zoe’s is <code>P = 25 - 2.5Q</code>. What is society’s marginal social benefit curve?',
-    back: 'Add the marginal benefits vertically: <code>MSB = (50 - 5Q) + (25 - 2.5Q) = 75 - 7.5Q</code>.',
+    back: 'Add the marginal benefits vertically: <code>MSB = (50 - 5Q) + (25 - 2.5Q) = 75 - 7.5Q</code>.<br><code>MSB</code> means marginal social benefit.',
     tags: ['MSB', 'vertical sum']
   },
   {
@@ -171,12 +171,39 @@ window.chapter10Cards = [
     tags: ['information', 'government failure']
   },
   {
-    id: 'c10-20',
-    topic: 'Government Provision',
-    type: 'definition',
-    formula: false,
-    front: 'What fairness principles for taxation are mentioned in the lecture on public goods?',
-    back: 'The lecture mentions the ability-to-pay principle and the pay-as-you-go principle.',
-    tags: ['fairness', 'tax principles']
+    id: 'c10-21',
+    topic: 'One-Off Public Goods',
+    type: 'rule',
+    formula: true,
+    front: 'For a one-off public good with a fixed cost, what is the provision rule?',
+    back: 'Provide the good if the <strong>sum of individuals’ values</strong> exceeds the fixed cost. Total surplus is <code>Σvalues - cost</code>. If this is positive, provision is efficient.',
+    tags: ['public good', 'fixed cost', 'total surplus']
+  },
+  {
+    id: 'c10-22',
+    topic: 'Lindahl Prices',
+    type: 'calculation',
+    formula: true,
+    front: 'If the efficient quantity is already known and two people’s Lindahl prices are found from their MB curves, how do you find the third person’s Lindahl price?',
+    back: 'Use the cost-sharing identity at the efficient quantity: the individual Lindahl prices must add up to marginal cost. So the missing person’s price is <code>MC - (sum of the others’ Lindahl prices)</code>, where <code>MC</code> means marginal cost.',
+    tags: ['Lindahl', 'missing payment', 'calculation']
+  },
+  {
+    id: 'c10-23',
+    topic: 'Public Goods and Free Riding',
+    type: 'concept',
+    formula: true,
+    front: 'If one person privately provides a public good and others free-ride, how do you measure another person’s surplus from that provision?',
+    back: 'Take that person’s total willingness to pay for the provided quantity and subtract what they personally pay. Under free-riding, they may enjoy positive surplus even when they contribute zero.',
+    tags: ['free-riding', 'surplus']
+  },
+  {
+    id: 'c10-24',
+    topic: 'Demand for Public Goods',
+    type: 'calculation',
+    formula: true,
+    front: 'If <code>n</code> residents have identical public-good demand <code>P = a - bQ</code>, what is the market marginal social benefit curve?',
+    back: 'Add their marginal benefits vertically: <code>MSB = n(a - bQ) = na - nbQ</code>. Then set <code>MSB = MC</code> to find the efficient quantity.<br><code>MSB</code> means marginal social benefit and <code>MC</code> means marginal cost.',
+    tags: ['public goods', 'identical consumers', 'vertical sum']
   }
 ];

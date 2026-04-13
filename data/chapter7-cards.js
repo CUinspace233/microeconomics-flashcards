@@ -162,21 +162,12 @@ window.chapter7Cards = [
     tags: ['allocative inefficiency']
   },
   {
-    id: 'c7-19',
-    topic: 'Regulation',
-    type: 'definition',
-    formula: false,
-    front: 'What is competition law?',
-    back: 'Competition law is law intended to promote market competition by regulating anti-competitive conduct of firms.',
-    tags: ['competition law']
-  },
-  {
     id: 'c7-20',
     topic: 'Regulation',
     type: 'concept',
     formula: false,
     front: 'What is marginal-cost pricing regulation, and what problem can it create for a natural monopoly?',
-    back: 'Marginal-cost pricing forces the firm to set <code>P = MC</code>, which achieves allocative efficiency. But if <code>P < ATC</code>, a natural monopoly makes losses and may need subsidies or may exit.',
+    back: 'Marginal-cost pricing forces the firm to set <code>P = MC</code>, where <code>MC</code> means <strong>marginal cost</strong>, which achieves allocative efficiency. But if <code>P < ATC</code>, with <code>ATC</code> meaning <strong>average total cost</strong>, a natural monopoly makes losses and may need subsidies or may exit.',
     tags: ['MC pricing', 'natural monopoly']
   },
   {
@@ -185,7 +176,7 @@ window.chapter7Cards = [
     type: 'definition',
     formula: false,
     front: 'What is average-cost pricing regulation?',
-    back: 'Average-cost pricing forces the monopolist to set price and quantity where the demand curve intersects the ATC curve, so the firm earns zero economic profit.',
+    back: 'Average-cost pricing forces the monopolist to set price and quantity where the demand curve intersects the <code>ATC</code> (average total cost) curve, so the firm earns zero economic profit.',
     tags: ['AC pricing']
   },
   {
@@ -232,5 +223,41 @@ window.chapter7Cards = [
     front: 'What is third-degree price discrimination?',
     back: 'Third-degree price discrimination means charging different prices to different consumer groups or markets, such as by location or student status.',
     tags: ['third-degree price discrimination']
+  },
+  {
+    id: 'c7-27',
+    topic: 'Monopoly Basics',
+    type: 'calculation',
+    formula: true,
+    front: 'A monopolist faces demand <code>P = 72 - 0.8Q</code> and marginal revenue <code>MR = 72 - 1.6Q</code>. What price maximizes revenue?',
+    back: 'Revenue is maximized where <code>MR = 0</code>, with <code>MR</code> meaning <strong>marginal revenue</strong>.<br>Set <code>72 - 1.6Q = 0</code> to get <code>Q = 45</code>.<br>Then use demand: <code>P = 72 - 0.8(45) = 36</code>.<br>So the revenue-maximizing price is <strong>36</strong>.',
+    tags: ['monopoly', 'MR=0', 'revenue maximization']
+  },
+  {
+    id: 'c7-28',
+    topic: 'Monopoly Basics',
+    type: 'rule',
+    formula: true,
+    front: 'In a monopoly exam question, what is the difference between the revenue-maximizing quantity and the profit-maximizing quantity?',
+    back: 'Revenue maximization uses <code>MR = 0</code>. Profit maximization uses <code>MR = MC</code>.<br><code>MR</code> means <strong>marginal revenue</strong> and <code>MC</code> means <strong>marginal cost</strong>.<br>After finding the quantity, use the demand curve to get price.',
+    tags: ['monopoly', 'revenue vs profit']
+  },
+  {
+    id: 'c7-29',
+    topic: 'Monopoly Basics',
+    type: 'calculation',
+    formula: true,
+    front: 'If a monopoly faces demand <code>P = 481 - 6Q</code> and has marginal cost (or supply) <code>P = 4Q</code>, what is the profit-maximizing quantity?',
+    back: 'First derive marginal revenue from the linear demand: <code>MR = 481 - 12Q</code>.<br>Set <code>MR = MC</code>: <code>481 - 12Q = 4Q</code>.<br>So <code>481 = 16Q</code> and <code>Q = 30.0625</code>.',
+    tags: ['monopoly', 'MR=MC', 'calculation']
+  },
+  {
+    id: 'c7-30',
+    topic: 'Efficiency',
+    type: 'rule',
+    formula: true,
+    front: 'If a monopoly is forced to charge the socially optimal price, what quantity rule should you use?',
+    back: 'Use the efficient condition <code>P = MC</code>, not <code>MR = MC</code>. In these questions, you solve demand and marginal cost together to get the regulated quantity and price.',
+    tags: ['social optimum', 'regulation', 'P=MC']
   }
 ];

@@ -41,7 +41,7 @@ window.chapter5Cards = [
     type: 'definition',
     formula: false,
     front: 'What is deadweight loss?',
-    back: 'Deadweight loss is the loss of total surplus caused when the market is prevented from reaching the efficient equilibrium quantity where marginal benefit equals marginal cost.',
+    back: 'Deadweight loss (DWL) is the loss of total surplus caused when the market is prevented from reaching the efficient equilibrium quantity where marginal benefit equals marginal cost.',
     tags: ['DWL', 'definition']
   },
   {
@@ -185,7 +185,7 @@ window.chapter5Cards = [
     type: 'calculation',
     formula: true,
     front: 'In the tax example with demand <code>P = 60 - 0.2Q</code>, supply <code>P = 0.2Q</code>, and tax <code>t = 10</code>, what are consumer surplus, producer surplus, total surplus, and deadweight loss after tax?',
-    back: 'After tax, <code>Q = 125</code>, buyer price is <code>35</code>, seller net price is <code>25</code>.<br>Consumer surplus = <code>0.5 × 125 × 25 = 1562.5</code>.<br>Producer surplus = <code>0.5 × 125 × 25 = 1562.5</code>.<br>Government revenue = <code>1250</code>.<br>Total surplus = <code>1562.5 + 1562.5 + 1250 = 4375</code>.<br>Before tax, total surplus was <code>4500</code>, so <code>DWL = 125</code>.',
+    back: 'After tax, <code>Q = 125</code>, buyer price is <code>35</code>, seller net price is <code>25</code>.<br><code>CS</code> (consumer surplus) = <code>0.5 × 125 × 25 = 1562.5</code>.<br><code>PS</code> (producer surplus) = <code>0.5 × 125 × 25 = 1562.5</code>.<br>Government revenue = <code>1250</code>.<br><code>TS</code> (total surplus) = <code>1562.5 + 1562.5 + 1250 = 4375</code>.<br>Before tax, total surplus was <code>4500</code>, so <code>DWL</code> (deadweight loss) <code>= 125</code>.',
     tags: ['tax', 'CS', 'PS', 'DWL']
   },
   {
@@ -194,7 +194,7 @@ window.chapter5Cards = [
     type: 'formula',
     formula: true,
     front: 'How can deadweight loss from a per-unit tax be calculated geometrically?',
-    back: 'Deadweight loss is the triangle formed by the tax wedge and the reduction in quantity: <code>DWL = 0.5 × tax × reduction in quantity</code>.',
+    back: 'Deadweight loss is the triangle formed by the tax wedge and the reduction in quantity: <code>DWL (deadweight loss) = 0.5 × tax × reduction in quantity</code>.',
     tags: ['DWL', 'formula']
   },
   {
@@ -268,5 +268,50 @@ window.chapter5Cards = [
     front: 'If the government wants to help low-income consumers, why might a direct transfer be more efficient than a price ceiling or subsidy?',
     back: 'Because a direct transfer can redistribute income without distorting market prices and quantities as much, so it usually creates less deadweight loss.',
     tags: ['redistribution', 'efficiency']
+  },
+  {
+    id: 'c5-31',
+    topic: 'Taxation',
+    type: 'calculation',
+    formula: true,
+    front: 'In a per-unit tax question, what part of government tax revenue is specifically a transfer from consumers to the government?',
+    back: 'Take the <strong>consumer price increase</strong> caused by the tax and multiply by the after-tax quantity: <code>(Pbuyer - Pbefore) × Qtax</code>. The rest of tax revenue comes from sellers through the fall in net price.',
+    tags: ['tax incidence', 'revenue transfer', 'formula']
+  },
+  {
+    id: 'c5-32',
+    topic: 'Taxation',
+    type: 'calculation',
+    formula: true,
+    front: 'If a tax creates the same quantity reduction as a price ceiling, how do you find the price ceiling that mimics the tax quantity?',
+    back: 'First solve for the quantity traded under the tax. Then choose the price ceiling that makes <code>Qs</code> equal that same traded quantity, because under a binding ceiling the short side of the market determines actual trade.',
+    tags: ['tax', 'price ceiling', 'same quantity']
+  },
+  {
+    id: 'c5-33',
+    topic: 'Price Controls',
+    type: 'concept',
+    formula: true,
+    front: 'Under a binding price floor, what is the maximum lump-sum transfer consumers would pay producers to return to equilibrium?',
+    back: 'It equals the <strong>consumer surplus gain</strong> from removing the price floor. Consumers would pay up to, but not more than, the increase in their surplus from moving back to equilibrium trade.',
+    tags: ['price floor', 'lump sum', 'consumer surplus']
+  },
+  {
+    id: 'c5-34',
+    topic: 'Price Controls',
+    type: 'concept',
+    formula: true,
+    front: 'Under a binding price floor, what is the minimum lump-sum transfer producers would accept to return to equilibrium?',
+    back: 'It equals the <strong>producer surplus loss</strong> from removing the price floor. Producers need to be compensated for exactly how much producer surplus they give up.',
+    tags: ['price floor', 'lump sum', 'producer surplus']
+  },
+  {
+    id: 'c5-35',
+    topic: 'Subsidy',
+    type: 'calculation',
+    formula: true,
+    front: 'If a negative supply shock shifts supply left and the government wants quantity traded restored to its original level, how do you find the required per-unit consumer subsidy?',
+    back: 'Compute the original equilibrium quantity <code>Q*</code>. Then find the price wedge at that quantity between the new post-shock supply curve and the original demand price buyers were effectively willing to pay. The subsidy must fill exactly that wedge.',
+    tags: ['subsidy', 'supply shock', 'restore quantity']
   }
 ];

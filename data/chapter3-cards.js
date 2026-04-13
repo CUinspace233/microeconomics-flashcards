@@ -23,7 +23,7 @@ window.chapter3Cards = [
     type: 'rule',
     formula: false,
     front: 'What is the cost-benefit principle for a consumer deciding whether to consume one more unit?',
-    back: 'Consume the extra unit if its marginal benefit is at least as large as its marginal cost: <code>MB ≥ MC</code>.',
+    back: 'Consume the extra unit if its marginal benefit (MB) is at least as large as its marginal cost (MC): <code>MB ≥ MC</code>.',
     tags: ['MB', 'MC', 'rule']
   },
   {
@@ -59,7 +59,7 @@ window.chapter3Cards = [
     type: 'concept',
     formula: false,
     front: 'In the continuous model, how can the demand curve be interpreted?',
-    back: 'In the continuous model, the demand curve is the consumer’s marginal benefit curve.',
+    back: 'In the continuous model, the demand curve is the consumer’s <strong>marginal benefit (MB)</strong> curve.',
     tags: ['MB curve', 'continuous model']
   },
   {
@@ -212,7 +212,7 @@ window.chapter3Cards = [
     type: 'definition',
     formula: true,
     front: 'What is price elasticity of demand?',
-    back: 'Price elasticity of demand measures how responsive quantity demanded is to a change in price: <code>PED = (%ΔQd) / (%ΔP)</code>.',
+    back: 'Price elasticity of demand (PED) measures how responsive quantity demanded is to a change in price: <code>PED = (%ΔQd) / (%ΔP)</code>.',
     tags: ['PED', 'formula']
   },
   {
@@ -221,7 +221,7 @@ window.chapter3Cards = [
     type: 'formula',
     formula: true,
     front: 'How can point price elasticity of demand be written using slope?',
-    back: 'At a point on the demand curve, <code>PED = (1 / slope) × (P / Q)</code>. Because demand slopes downward, the signed value is negative, but elasticity is often reported in absolute value.',
+    back: 'At a point on the demand curve, <code>PED = (1 / slope) × (P / Q)</code>.<br>Here <code>PED</code> means <strong>price elasticity of demand</strong>. Because demand slopes downward, the signed value is negative, but elasticity is often reported in absolute value.',
     tags: ['PED', 'slope']
   },
   {
@@ -268,5 +268,32 @@ window.chapter3Cards = [
     front: 'How does a price cut affect total revenue when demand is elastic, unit elastic, or inelastic?',
     back: 'If demand is elastic, a price cut <strong>raises</strong> total revenue. If demand is unit elastic, total revenue is <strong>unchanged</strong>. If demand is inelastic, a price cut <strong>lowers</strong> total revenue.',
     tags: ['revenue', 'PED', 'rule']
+  },
+  {
+    id: 'c3-31',
+    topic: 'Elasticity of Demand',
+    type: 'calculation',
+    formula: true,
+    front: 'If price elasticity of demand is <code>0.8</code> in absolute value and price rises by <code>22.6%</code>, by approximately how much does quantity demanded change?',
+    back: 'Use <code>%ΔQ ≈ PED × %ΔP</code> in absolute value.<br><code>%ΔQ ≈ 0.8 × 22.6% = 18.08%</code>.<br>Because price rises, quantity demanded <strong>falls by about 18.08%</strong>.',
+    tags: ['PED', 'percentage change', 'calculation']
+  },
+  {
+    id: 'c3-32',
+    topic: 'Revenue and Elasticity',
+    type: 'calculation',
+    formula: true,
+    front: 'If demand is inelastic with <code>PED = 0.8</code> and price rises by <code>22.6%</code>, what happens to total revenue?',
+    back: 'Revenue <strong>rises</strong>. With inelastic demand, the percentage drop in quantity (<code>18.08%</code>) is smaller than the percentage rise in price (<code>22.6%</code>), so total revenue increases.',
+    tags: ['revenue', 'PED', 'inelastic demand']
+  },
+  {
+    id: 'c3-33',
+    topic: 'Consumer Choice',
+    type: 'rule',
+    formula: true,
+    front: 'In a consumer-choice table question with two goods and a full budget, what rule identifies the utility-maximizing bundle?',
+    back: 'Allocate spending toward the units with the <strong>highest marginal utility per dollar</strong> until the budget is exhausted. At an interior optimum, the last dollar spent on each good should deliver equal marginal utility.',
+    tags: ['consumer choice', 'MU per dollar', 'budget']
   }
 ];

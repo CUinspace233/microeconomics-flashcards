@@ -23,7 +23,7 @@ window.chapter2Cards = [
     type: 'definition',
     formula: false,
     front: 'What is marginal benefit for a producer?',
-    back: 'Marginal benefit is the extra benefit from producing one more unit. In a perfectly competitive market, the marginal benefit of an extra unit equals the market price.',
+    back: 'Marginal benefit (MB) is the extra benefit from producing one more unit. In a perfectly competitive market, the marginal benefit of an extra unit equals the market price.',
     tags: ['MB', 'supply']
   },
   {
@@ -32,7 +32,7 @@ window.chapter2Cards = [
     type: 'definition',
     formula: false,
     front: 'What is marginal cost for a producer?',
-    back: 'Marginal cost is the extra cost of producing one more unit. The relevant economic cost includes opportunity cost, not just accounting cost.',
+    back: 'Marginal cost (MC) is the extra cost of producing one more unit. The relevant economic cost includes opportunity cost, not just accounting cost.',
     tags: ['MC', 'supply']
   },
   {
@@ -41,7 +41,7 @@ window.chapter2Cards = [
     type: 'principle',
     formula: false,
     front: 'What is the cost-benefit principle for a producer?',
-    back: 'An action should be taken if marginal benefit is greater than or equal to marginal cost. For supply decisions, produce the unit if <code>MB ≥ MC</code>.',
+    back: 'An action should be taken if marginal benefit (MB) is greater than or equal to marginal cost (MC). For supply decisions, produce the unit if <code>MB ≥ MC</code>.',
     tags: ['cost-benefit', 'rule']
   },
   {
@@ -50,7 +50,7 @@ window.chapter2Cards = [
     type: 'definition',
     formula: false,
     front: 'What is economic surplus from producing a unit?',
-    back: 'Economic surplus from an action equals the difference between marginal benefit and marginal cost: <code>surplus = MB - MC</code>.',
+    back: 'Economic surplus from an action equals the difference between marginal benefit and marginal cost: <code>surplus = MB (marginal benefit) - MC (marginal cost)</code>.',
     tags: ['surplus', 'definition']
   },
   {
@@ -122,7 +122,7 @@ window.chapter2Cards = [
     type: 'definition',
     formula: true,
     front: 'What is profit, and how is it calculated?',
-    back: 'Profit is total revenue minus total cost: <code>π = TR - TC</code>. In turn, <code>TR = P × Q</code> and <code>TC = FC + VC</code>.',
+    back: 'Profit is total revenue minus total cost: <code>π = TR - TC</code>.<br><code>TR</code> = total revenue, <code>TC</code> = total cost, <code>FC</code> = fixed cost, and <code>VC</code> = variable cost.<br>So <code>TR = P × Q</code> and <code>TC = FC + VC</code>.',
     tags: ['profit', 'formula']
   },
   {
@@ -131,7 +131,7 @@ window.chapter2Cards = [
     type: 'definition',
     formula: true,
     front: 'What is marginal cost, and how is it calculated?',
-    back: 'Marginal cost is the extra cost of producing additional output: <code>MC = ΔTC / ΔQ</code>.',
+    back: 'Marginal cost (MC) is the extra cost of producing additional output: <code>MC = ΔTC / ΔQ</code>, where <code>TC</code> is total cost.',
     tags: ['MC', 'formula']
   },
   {
@@ -203,7 +203,7 @@ window.chapter2Cards = [
     type: 'rule',
     formula: true,
     front: 'In the continuous short-run model, which part of the MC curve is the supply curve?',
-    back: 'The short-run supply curve is the part of the marginal cost curve that lies <strong>above the AVC curve</strong>.',
+    back: 'The short-run supply curve is the part of the marginal cost (MC) curve that lies <strong>above the AVC (average variable cost)</strong> curve.',
     tags: ['MC', 'AVC', 'supply curve']
   },
   {
@@ -212,7 +212,7 @@ window.chapter2Cards = [
     type: 'rule',
     formula: true,
     front: 'In the continuous long-run model, which part of the MC curve is the supply curve?',
-    back: 'The long-run supply curve is the part of the marginal cost curve that lies <strong>above the ATC curve</strong>.',
+    back: 'The long-run supply curve is the part of the marginal cost (MC) curve that lies <strong>above the ATC (average total cost)</strong> curve.',
     tags: ['MC', 'ATC', 'supply curve']
   },
   {
@@ -250,5 +250,32 @@ window.chapter2Cards = [
     front: 'When is supply elastic, unit elastic, or inelastic?',
     back: 'Supply is <strong>elastic</strong> if elasticity is greater than 1, <strong>unit elastic</strong> if elasticity equals 1, and <strong>inelastic</strong> if elasticity is less than 1.',
     tags: ['elastic', 'inelastic']
+  },
+  {
+    id: 'c2-29',
+    topic: 'Elasticity of Supply',
+    type: 'calculation',
+    formula: true,
+    front: 'A firm’s supply curve is <code>P = 10 + 2Q</code>. At a point where elasticity of supply is <code>9.9</code>, what quantity is the firm producing?',
+    back: 'Use point elasticity of supply: <code>Es = (1 / slope) × (P / Q)</code>.<br>Here slope = <code>2</code>, so <code>9.9 = (1/2) × (10 + 2Q)/Q</code>.<br>This gives <code>19.8Q = 10 + 2Q</code>, so <code>17.8Q = 10</code> and <code>Q ≈ 0.56</code>.',
+    tags: ['elasticity', 'point elasticity', 'calculation']
+  },
+  {
+    id: 'c2-30',
+    topic: 'Cost Curves',
+    type: 'rule',
+    formula: true,
+    front: 'In an exam table question, how do you decide whether a competitive firm stays open only in the short run, exits in the long run, or produces normally?',
+    back: 'Compare price with cost benchmarks:<br>If <code>P &lt; AVC</code>, shut down even in the short run.<br>If <code>AVC ≤ P &lt; ATC</code>, stay open in the short run but exit in the long run.<br>If <code>P ≥ ATC</code>, the firm can continue in the long run.',
+    tags: ['shutdown', 'exit', 'ATC', 'AVC']
+  },
+  {
+    id: 'c2-31',
+    topic: 'Costs',
+    type: 'calculation',
+    formula: true,
+    front: 'If an exam table gives total cost and variable cost at the same quantity, how do you recover fixed cost?',
+    back: 'Use <code>FC = TC - VC</code>. Fixed cost is the gap between total cost and variable cost at any quantity, including positive-output rows.',
+    tags: ['fixed cost', 'table', 'formula']
   }
 ];

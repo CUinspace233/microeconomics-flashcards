@@ -1,21 +1,12 @@
 window.chapter1Cards = [
   {
-    id: 'c1-01',
-    topic: 'Model Basics',
-    type: 'definition',
-    formula: false,
-    front: 'What is a model in economics?',
-    back: 'A model is a <strong>simplified representation of reality</strong> used to explain economic behaviour and make predictions.',
-    tags: ['definition', 'model']
-  },
-  {
     id: 'c1-02',
     topic: 'One-Agent Economy',
     type: 'setup',
     formula: true,
-    front: 'In Alberto’s 16-hour day, 1 kg of bananas takes 1 hour and 1 kg of rabbits takes 2 hours. What are the maximum outputs?',
-    back: '<strong>Max bananas = 16 kg</strong><br><strong>Max rabbits = 8 kg</strong><br>Because bananas: <code>16/1 = 16</code>, rabbits: <code>16/2 = 8</code>.',
-    tags: ['numbers', 'PPC', 'calculation']
+    front: 'If Alberto spends all 16 hours only on bananas, what is his maximum banana output? If he spends all 16 hours only on rabbits, what is his maximum rabbit output?',
+    back: '<strong>Max bananas = 16 kg</strong><br><strong>Max rabbits = 8 kg</strong><br>Because bananas: <code>16/1 = 16</code>, rabbits: <code>16/2 = 8</code>. These are the two <strong>PPC (Production Possibility Curve)</strong> endpoints for Alberto.',
+    tags: ['numbers', 'PPC', 'endpoint', 'calculation']
   },
   {
     id: 'c1-03',
@@ -23,7 +14,7 @@ window.chapter1Cards = [
     type: 'formula',
     formula: true,
     front: 'In Alberto’s 16-hour day, if 1 banana takes 1 hour and 1 rabbit takes 2 hours, write his production constraint as an equation.',
-    back: 'If <code>B</code> is bananas and <code>R</code> is rabbits, the time constraint is <code>B + 2R = 16</code>.<br>Equivalent PPC form: <code>R = 8 - 0.5B</code>.',
+    back: 'If <code>B</code> is bananas and <code>R</code> is rabbits, the time constraint is <code>B + 2R = 16</code>.<br>Equivalent <strong>PPC (Production Possibility Curve)</strong> form: <code>R = 8 - 0.5B</code>.',
     tags: ['equation', 'PPC', 'formula']
   },
   {
@@ -104,7 +95,7 @@ window.chapter1Cards = [
     type: 'formula',
     formula: true,
     front: 'How do you calculate opportunity cost from a PPC?',
-    back: 'Use the slope: <code>OC of bananas = loss in rabbits / gain in bananas</code>.<br><code>OC of rabbits = loss in bananas / gain in rabbits</code>.',
+    back: 'Use the slope: <code>OC (opportunity cost) of bananas = loss in rabbits / gain in bananas</code>.<br><code>OC of rabbits = loss in bananas / gain in rabbits</code>.',
     tags: ['slope', 'formula']
   },
   {
@@ -173,38 +164,38 @@ window.chapter1Cards = [
   {
     id: 'c1-20',
     topic: 'Economy PPC',
-    type: 'formula',
+    type: 'graph',
     formula: true,
-    front: 'Given Alberto can produce 16 bananas or 8 rabbits, and Leo can produce 4 bananas or 4 rabbits, what is the economy’s maximum banana output when they are combined?',
-    back: 'Add their banana capacities: Alberto <code>16</code> + Leo <code>4</code> = <strong>20 bananas</strong>.',
-    tags: ['economy PPC', 'calculation']
+    front: 'If Alberto can produce 16 bananas or 8 rabbits, and Leo can produce 4 bananas or 4 rabbits, what does the point <code>(20, 0)</code> mean on the economy-wide PPC?',
+    back: 'It is the <strong>all-bananas endpoint</strong>. If both people devote all resources to bananas, total output is <code>16 + 4 = 20</code> bananas and <code>0</code> rabbits.',
+    tags: ['economy PPC', 'endpoint', 'bananas']
   },
   {
     id: 'c1-21',
     topic: 'Economy PPC',
-    type: 'formula',
+    type: 'graph',
     formula: true,
-    front: 'Given Alberto can produce 16 bananas or 8 rabbits, and Leo can produce 4 bananas or 4 rabbits, what is the economy’s maximum rabbit output when they are combined?',
-    back: 'Add their rabbit capacities: Alberto <code>8</code> + Leo <code>4</code> = <strong>12 rabbits</strong>.',
-    tags: ['economy PPC', 'calculation']
+    front: 'If Alberto can produce 16 bananas or 8 rabbits, and Leo can produce 4 bananas or 4 rabbits, what does the point <code>(0, 12)</code> mean on the economy-wide PPC?',
+    back: 'It is the <strong>all-rabbits endpoint</strong>. If both people devote all resources to rabbits, total output is <code>8 + 4 = 12</code> rabbits and <code>0</code> bananas.',
+    tags: ['economy PPC', 'endpoint', 'rabbits']
   },
   {
     id: 'c1-22',
     topic: 'Economy PPC',
     type: 'formula',
     formula: true,
-    front: 'Given Alberto’s opportunity cost of 1 banana is 0.5 rabbit and Leo’s is 1 rabbit, who should produce the first bananas when the economy moves from the all-rabbits point?',
-    back: '<strong>Alberto</strong>, because his opportunity cost of bananas is lower: <code>0.5 rabbit</code> versus Leo’s <code>1 rabbit</code>.',
-    tags: ['low hanging fruit', 'bananas']
+    front: 'At the economy-wide all-rabbits endpoint <code>(0, 12)</code>, the economy starts producing its first bananas. Who should switch from rabbits to bananas first: Alberto or Leo?',
+    back: '<strong>Alberto</strong>, because his opportunity cost of bananas is lower: <code>0.5 rabbit</code> versus Leo’s <code>1 rabbit</code>. He gives up fewer rabbits per extra banana.',
+    tags: ['economy PPC', 'endpoint', 'bananas']
   },
   {
     id: 'c1-23',
     topic: 'Economy PPC',
     type: 'formula',
     formula: true,
-    front: 'Given Alberto’s opportunity cost of 1 rabbit is 2 bananas and Leo’s is 1 banana, who should produce the first rabbits when the economy moves from the all-bananas point?',
-    back: '<strong>Leo</strong>, because his opportunity cost of rabbits is lower: <code>1 banana</code> versus Alberto’s <code>2 bananas</code>.',
-    tags: ['low hanging fruit', 'rabbits']
+    front: 'At the economy-wide all-bananas endpoint <code>(20, 0)</code>, the economy starts producing its first rabbits. Who should switch from bananas to rabbits first: Alberto or Leo?',
+    back: '<strong>Leo</strong>, because his opportunity cost of rabbits is lower: <code>1 banana</code> versus Alberto’s <code>2 bananas</code>. He gives up fewer bananas per extra rabbit.',
+    tags: ['economy PPC', 'endpoint', 'rabbits']
   },
   {
     id: 'c1-24',
@@ -257,7 +248,7 @@ window.chapter1Cards = [
     type: 'comparison',
     formula: false,
     front: 'In Chapter 1 trade analysis, what is the difference between a PPC and a CPC?',
-    back: '<strong>PPC</strong> is about what the economy can produce.<br><strong>CPC</strong> is about what the economy can consume.<br>With trade, the CPC can lie outside the PPC.',
+    back: '<strong>PPC (Production Possibility Curve)</strong> is about what the economy can produce.<br><strong>CPC (Consumption Possibility Curve)</strong> is about what the economy can consume.<br>With trade, the CPC can lie outside the PPC.',
     tags: ['PPC vs CPC']
   },
   {
@@ -283,9 +274,9 @@ window.chapter1Cards = [
     topic: 'International Trade',
     type: 'rule',
     formula: true,
-    front: 'When comparing domestic opportunity cost with world price, what export/import rule does the chapter give for bananas?',
-    back: 'If the opportunity cost of bananas is <strong>lower than the world price</strong>, export bananas. If the opportunity cost is <strong>higher than the world price</strong>, import bananas.',
-    tags: ['rule', 'trade']
+    front: 'When the world price is quoted as <code>1 banana = x rabbits</code>, what is the export/import rule for bananas?',
+    back: 'Compare the world price with the <strong>opportunity cost of bananas in rabbits</strong>.<br>If domestic OC of bananas is <strong>lower</strong> than the world price, export bananas.<br>If domestic OC is <strong>higher</strong> than the world price, import bananas.',
+    tags: ['rule', 'trade', 'units']
   },
   {
     id: 'c1-33',

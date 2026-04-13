@@ -232,5 +232,32 @@ window.chapter6Cards = [
     front: 'Why is a quota usually considered bad in total-surplus terms?',
     back: 'Because it restricts trade, raises price, harms consumers, and creates deadweight loss even though some domestic producers and quota holders may gain.',
     tags: ['quota', 'DWL']
+  },
+  {
+    id: 'c6-27',
+    topic: 'Trade Policy Equivalence',
+    type: 'rule',
+    formula: true,
+    front: 'How do you find the quota that has the same effect as a tariff in a small open economy?',
+    back: 'First solve the domestic price under the tariff: <code>P = Pw + t</code>. Then calculate imports at that price: <code>imports = Qd - Qs</code>. A quota with that exact import amount has the same quantity effect as the tariff.',
+    tags: ['tariff', 'quota', 'equivalence']
+  },
+  {
+    id: 'c6-28',
+    topic: 'Trade Policy Equivalence',
+    type: 'calculation',
+    formula: true,
+    front: 'If a tariff is chosen to cut imports in half, what is the exam workflow?',
+    back: 'Start from free-trade imports: <code>imports = Qd - Qs</code> at <code>Pw</code>. Halve that amount. Then find the domestic price at which <code>Qd - Qs</code> equals the reduced import amount. That price implies the tariff size <code>t = Pdomestic - Pw</code>.',
+    tags: ['tariff', 'imports', 'workflow']
+  },
+  {
+    id: 'c6-29',
+    topic: 'Quotas',
+    type: 'calculation',
+    formula: true,
+    front: 'With a binding import quota, how do you calculate the fall in consumer surplus relative to free trade?',
+    back: 'Find the new domestic price implied by the quota, then compute consumer surplus before and after using the demand curve. The decrease in consumer surplus is <code>CS</code> under free trade minus <code>CS</code> under the quota.',
+    tags: ['quota', 'consumer surplus', 'calculation']
   }
 ];

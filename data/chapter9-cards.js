@@ -32,7 +32,7 @@ window.chapter9Cards = [
     type: 'formula',
     formula: true,
     front: 'With a positive consumption externality, how is marginal social benefit related to private and external benefit?',
-    back: 'Marginal social benefit equals private marginal benefit plus marginal external benefit: <code>MSB = MPB + MEB</code>.',
+    back: 'Marginal social benefit (MSB) equals marginal private benefit (MPB) plus marginal external benefit (MEB): <code>MSB = MPB + MEB</code>.',
     tags: ['MSB', 'formula']
   },
   {
@@ -68,7 +68,7 @@ window.chapter9Cards = [
     type: 'formula',
     formula: true,
     front: 'With a negative production externality, how is marginal social cost related to private and external cost?',
-    back: 'Marginal social cost equals private marginal cost plus marginal external cost: <code>MSC = MPC + MEC</code>.',
+    back: 'Marginal social cost (MSC) equals marginal private cost (MPC) plus marginal external cost (MEC): <code>MSC = MPC + MEC</code>.',
     tags: ['MSC', 'formula']
   },
   {
@@ -185,7 +185,7 @@ window.chapter9Cards = [
     type: 'calculation',
     formula: true,
     front: 'In the same corrective-tax example, what are consumer surplus, producer surplus, and total surplus after tax according to the lecture numbers?',
-    back: 'Consumer surplus = <code>902.5</code>.<br>Producer surplus = <code>902.5</code>.<br>Government revenue = <code>190</code>.<br>Total surplus = <code>1995</code>.',
+    back: '<code>CS</code> (consumer surplus) = <code>902.5</code>.<br><code>PS</code> (producer surplus) = <code>902.5</code>.<br>Government revenue = <code>190</code>.<br><code>TS</code> (total surplus) = <code>1995</code>.',
     tags: ['CS', 'PS', 'TS']
   },
   {
@@ -194,7 +194,7 @@ window.chapter9Cards = [
     type: 'calculation',
     formula: true,
     front: 'In the same corrective-tax example, what is the deadweight loss after the tax according to the lecture calculation?',
-    back: 'Deadweight loss is <code>(0.5 × 2) × 5 = 5</code>.',
+    back: '<code>DWL</code> (deadweight loss) is <code>(0.5 × 2) × 5 = 5</code>.',
     tags: ['DWL']
   },
   {
@@ -205,5 +205,50 @@ window.chapter9Cards = [
     front: 'What is the general Pigovian-policy rule for externalities in large markets?',
     back: 'Subsidize positive externalities and tax negative externalities, with the subsidy or tax set equal to the marginal external benefit or cost at the efficient quantity.',
     tags: ['Pigovian policy', 'general rule']
+  },
+  {
+    id: 'c9-24',
+    topic: 'Externality Curves',
+    type: 'rule',
+    formula: true,
+    front: 'If each unit creates a constant marginal external cost of <code>k</code>, how does the social supply curve differ from the private supply curve?',
+    back: 'The social supply curve shifts <strong>upward by k</strong>: <code>MSC = MPC + k</code>, where <code>MSC</code> is marginal social cost and <code>MPC</code> is marginal private cost. The slope stays the same; only the intercept rises.',
+    tags: ['MSC', 'negative externality', 'shift']
+  },
+  {
+    id: 'c9-25',
+    topic: 'Externality Curves',
+    type: 'rule',
+    formula: true,
+    front: 'If each unit creates a constant marginal external benefit of <code>k</code>, how does the social demand curve differ from the private demand curve?',
+    back: 'The social demand curve shifts <strong>upward by k</strong>: <code>MSB = MPB + k</code>, where <code>MSB</code> is marginal social benefit and <code>MPB</code> is marginal private benefit. The slope stays the same; only the intercept rises.',
+    tags: ['MSB', 'positive externality', 'shift']
+  },
+  {
+    id: 'c9-26',
+    topic: 'Corrective Policies',
+    type: 'calculation',
+    formula: true,
+    front: 'If demand is <code>P = 62 - 1.9Q</code> and supply is <code>P = Q</code>, what per-unit subsidy is needed to increase equilibrium quantity by <code>6</code> units?',
+    back: 'Original equilibrium solves <code>62 - 1.9Q = Q</code>, so <code>Q = 62 / 2.9 ≈ 21.38</code>.<br>Target quantity is <code>27.38</code>.<br>At that quantity, demand price is <code>62 - 1.9(27.38) = 10</code> and supply price is <code>27.38</code>.<br>The subsidy must fill the wedge: <code>27.38 - 10 = 17.38</code>.',
+    tags: ['subsidy', 'target quantity', 'calculation']
+  },
+  {
+    id: 'c9-27',
+    topic: 'Negative Production Externality',
+    type: 'calculation',
+    formula: true,
+    front: 'If demand is <code>P = 13 - Q</code>, private supply is <code>P = 5Q</code>, and marginal external cost is <code>4</code> per unit, what is the socially optimal quantity?',
+    back: 'Use <code>MSC = MPC + MEC = 5Q + 4</code>.<br>Set demand equal to MSC: <code>13 - Q = 5Q + 4</code>.<br>So <code>9 = 6Q</code> and the socially optimal quantity is <code>Q = 1.5</code>.',
+    tags: ['MSC', 'social optimum', 'calculation']
+  },
+  {
+    id: 'c9-28',
+    topic: 'Mixed External Effects',
+    type: 'concept',
+    formula: true,
+    front: 'If each extra unit creates a marginal external benefit of <code>10.8</code> and a marginal external cost of <code>10.8</code>, what happens to the social supply curve relative to the private supply curve?',
+    back: 'They exactly offset. Net external effect is zero, so the social supply curve is unchanged from the private supply curve. In particular, the slope does <strong>not</strong> change just because both effects exist.',
+    tags: ['externalities', 'offsetting effects', 'exam trap']
   }
 ];

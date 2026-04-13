@@ -388,16 +388,16 @@ function renderHeroStats() {
 function renderFormulaSheet() {
   const formulas = [
     { title: 'PPC / time constraint', body: 'Example: B + 2R = 16  →  R = 8 - 0.5B' },
-    { title: 'Opportunity cost from PPC', body: 'OC of bananas = loss in rabbits / gain in bananas' },
-    { title: 'Profit', body: 'π = TR - TC, with TR = P × Q and TC = FC + VC' },
-    { title: 'Marginal cost', body: 'MC = ΔTC / ΔQ' },
+    { title: 'Opportunity cost from PPC', body: 'OC (opportunity cost) of bananas = loss in rabbits / gain in bananas' },
+    { title: 'Profit', body: 'π = TR (total revenue) - TC (total cost), with TR = P × Q and TC = FC (fixed cost) + VC (variable cost)' },
+    { title: 'Marginal cost', body: 'MC (marginal cost) = ΔTC / ΔQ' },
     { title: 'Supply elasticity', body: 'Elasticity = (%ΔQ / %ΔP) = (1 / slope) × (P / Q)' },
-    { title: 'Demand elasticity', body: 'PED = (%ΔQd / %ΔP); on a line: PED = (1 / slope) × (P / Q)' },
-    { title: 'Tax deadweight loss', body: 'DWL = 0.5 × tax × reduction in quantity' },
+    { title: 'Demand elasticity', body: 'PED (price elasticity of demand) = (%ΔQd / %ΔP); on a line: PED = (1 / slope) × (P / Q)' },
+    { title: 'Tax deadweight loss', body: 'DWL (deadweight loss) = 0.5 × tax × reduction in quantity' },
     { title: 'Imports / exports', body: 'Imports = Qd - Qs at Pw; Exports = Qs - Qd at Pw' },
-    { title: 'Monopoly rule', body: 'Choose Q where MR = MC, then use demand curve to find price' },
-    { title: 'Externalities', body: 'MSB = MPB + MEB; MSC = MPC + MEC; tax/subsidy should match external effect' },
-    { title: 'Public goods', body: 'For public goods use vertical summation: ΣMB = MC (Samuelson condition)' },
+    { title: 'Monopoly rule', body: 'Choose Q where MR (marginal revenue) = MC (marginal cost), then use demand curve to find price' },
+    { title: 'Externalities', body: 'MSB (marginal social benefit) = MPB (marginal private benefit) + MEB (marginal external benefit); MSC (marginal social cost) = MPC (marginal private cost) + MEC (marginal external cost)' },
+    { title: 'Public goods', body: 'For public goods use vertical summation: ΣMB (sum of marginal benefits) = MC (marginal cost) — Samuelson condition' },
   ];
 
   formulaSheet.innerHTML = `<h3>Quick Formula Sheet</h3>${formulas

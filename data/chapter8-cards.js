@@ -171,15 +171,6 @@ window.chapter8Cards = [
     tags: ['coordination game']
   },
   {
-    id: 'c8-20',
-    topic: 'Coordination Games',
-    type: 'definition',
-    formula: false,
-    front: 'What is a strategy profile?',
-    back: 'A strategy profile is the full set of strategies chosen by all players in a game.',
-    tags: ['strategy profile']
-  },
-  {
     id: 'c8-21',
     topic: 'Coordination Games',
     type: 'definition',
@@ -196,5 +187,32 @@ window.chapter8Cards = [
     front: 'Why can a coordination game have multiple Nash equilibria?',
     back: 'Because there can be more than one coordinated outcome where no player wants to deviate if the other player sticks with that coordinated choice.',
     tags: ['multiple Nash equilibria']
+  },
+  {
+    id: 'c8-23',
+    topic: 'Dominant Strategies',
+    type: 'rule',
+    formula: false,
+    front: 'If both players in a one-shot game have a dominant strategy, how many pure-strategy Nash equilibria does the game have?',
+    back: 'Exactly <strong>one</strong>: the strategy profile in which each player chooses their dominant strategy.',
+    tags: ['dominant strategy', 'Nash equilibrium']
+  },
+  {
+    id: 'c8-24',
+    topic: 'Dominated Strategies',
+    type: 'rule',
+    formula: true,
+    front: 'If Player 1 has 9 strategies and Player 2 has 3 strategies, and only one strategy is deleted by iterated elimination of dominated strategies, what is the largest number of strategy profiles that could remain?',
+    back: 'Originally there are <code>9 × 3 = 27</code> strategy profiles. If only one of Player 1’s strategies is deleted, <code>8 × 3 = 24</code> profiles remain.',
+    tags: ['dominated strategy', 'counting']
+  },
+  {
+    id: 'c8-25',
+    topic: 'Payoff Matrices',
+    type: 'calculation',
+    formula: false,
+    front: 'In a share-or-steal game with a 5-slice pizza, what are the payoffs for <code>(Share, Share)</code>, <code>(Share, Steal)</code>, <code>(Steal, Share)</code>, and <code>(Steal, Steal)</code>?',
+    back: '<code>(Share, Share) = (2.5, 2.5)</code> because they split the pizza.<br><code>(Share, Steal) = (0, 5)</code>.<br><code>(Steal, Share) = (5, 0)</code>.<br><code>(Steal, Steal) = (0, 0)</code> because the pizza is destroyed.',
+    tags: ['payoff matrix', 'share steal']
   }
 ];

@@ -194,7 +194,7 @@ window.chapter4Cards = [
     type: 'principle',
     formula: false,
     front: 'Why is a perfectly competitive equilibrium Pareto efficient in the standard model?',
-    back: 'Because total surplus is maximized there, so no further mutually beneficial trade remains that could make someone better off without harming anyone else.',
+    back: 'Because total surplus (TS) is maximized there, so no further mutually beneficial trade remains that could make someone better off without harming anyone else.',
     tags: ['competitive equilibrium', 'Pareto efficient']
   },
   {
@@ -214,5 +214,32 @@ window.chapter4Cards = [
     front: 'In a competitive market, what happens in the long run if firms earn positive economic profit? What if firms earn losses?',
     back: 'If firms earn positive economic profit, entry shifts market supply right and pushes price down. If firms incur losses, exit shifts market supply left and pushes price up. In long-run equilibrium, economic profit is zero and <code>P = min(ATC)</code>.',
     tags: ['entry', 'exit', 'long run']
+  },
+  {
+    id: 'c4-25',
+    topic: 'Aggregate Demand',
+    type: 'calculation',
+    formula: true,
+    front: 'If Lisa demands <code>4</code> units and Harry demands <code>7</code> units at a price of <code>$17.2</code>, what is aggregate quantity demanded?',
+    back: 'Add quantities <strong>horizontally</strong> at the same price: <code>4 + 7 = 11</code>. Aggregate quantity demanded is <strong>11</strong>.',
+    tags: ['aggregate demand', 'horizontal sum']
+  },
+  {
+    id: 'c4-26',
+    topic: 'Surplus',
+    type: 'calculation',
+    formula: true,
+    front: 'If linear demand and supply intersect at quantity <code>150</code>, and the highest consumer reservation price exceeds the lowest producer reservation price by <code>33.56</code>, how can total surplus at the Pareto-efficient outcome be calculated?',
+    back: 'Treat total surplus as the triangle between demand and supply up to the efficient quantity: <code>TS (total surplus) = 0.5 × base × height = 0.5 × 150 × 33.56 = 2517</code>.',
+    tags: ['total surplus', 'triangle', 'calculation']
+  },
+  {
+    id: 'c4-27',
+    topic: 'Long Run Adjustment',
+    type: 'calculation',
+    formula: true,
+    front: 'A market is in long-run equilibrium at <code>P = 300</code> and <code>Q = 29,000</code>. Each identical firm has marginal cost <code>P = 10 + 2q</code>. How do you find the number of firms?',
+    back: 'In long-run competitive equilibrium, each firm produces where <code>P = MC</code>, with <code>MC</code> meaning <strong>marginal cost</strong> for its own output choice. So <code>300 = 10 + 2q</code>, giving <code>q = 145</code> per firm. Number of firms is <code>29,000 / 145 = 200</code>.',
+    tags: ['long run', 'number of firms', 'calculation']
   }
 ];
