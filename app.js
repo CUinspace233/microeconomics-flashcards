@@ -5,6 +5,8 @@ const rawCards = [
   ...(window.chapter3Cards || []),
   ...(window.chapter4Cards || []),
   ...(window.chapter5Cards || []),
+  ...(window.chapter6Cards || []),
+  ...(window.chapter7Cards || []),
 ];
 const cards = rawCards.map((card) => ({
   ...card,
@@ -382,6 +384,8 @@ function renderFormulaSheet() {
     { title: 'Supply elasticity', body: 'Elasticity = (%ΔQ / %ΔP) = (1 / slope) × (P / Q)' },
     { title: 'Demand elasticity', body: 'PED = (%ΔQd / %ΔP); on a line: PED = (1 / slope) × (P / Q)' },
     { title: 'Tax deadweight loss', body: 'DWL = 0.5 × tax × reduction in quantity' },
+    { title: 'Imports / exports', body: 'Imports = Qd - Qs at Pw; Exports = Qs - Qd at Pw' },
+    { title: 'Monopoly rule', body: 'Choose Q where MR = MC, then use demand curve to find price' },
   ];
 
   formulaSheet.innerHTML = `<h3>Quick Formula Sheet</h3>${formulas
